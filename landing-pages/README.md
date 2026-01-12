@@ -58,28 +58,38 @@ This launches an interactive workflow that creates a complete, production-ready 
 
 ## Workflow Steps
 
-| Step | Skill | Description |
-|------|-------|-------------|
+| Step | Skill | Output |
+|------|-------|--------|
 | 0 | Setup | Create project folder (user specifies name) |
-| 1 | lp-brainstorming | Define goals, audience, value proposition |
-| 2 | lp-design-dna | Create design system using `frontend-design-o` |
-| 3 | lp-text-composing | Write copy using 4U, PAS, AIDA frameworks |
-| 4 | lp-planning | Generate implementation plan with bite-sized tasks |
-| 5 | lp-building | Build with subagent-driven development |
-| 6 | lp-qa-review | Verify quality (minimum score: 80) |
+| 1 | lp-brainstorming | brainstorm-brief.md |
+| 2 | lp-design-dna | design-dna.md |
+| 3 | lp-text-composing | copy-sections.md |
+| 4 | lp-planning | implementation-plan.md |
+| 5 | lp-image-prompts | image-prompts.json |
+| 6 | lp-image-generation | assets/images/*.webp |
+| 7 | lp-image-integration | implementation-plan.md (updated with image refs) |
+| 8 | lp-building | index.html, style.css, script.js |
+| 9 | lp-qa-review | qa-report.md |
+| 10 | Finish | Final delivery |
 
 ## Output Structure
 
 ```
 [project-name]/
-├── index.html           # Landing page markup
-├── style.css            # Styling following design-dna
-├── script.js            # Interactions and animations
+├── index.html
+├── style.css
+├── script.js
+├── assets/
+│   └── images/
+│       ├── hero-bg.webp
+│       ├── icon-*.webp
+│       └── *.webp
 └── docs/
     ├── brainstorm-brief.md
     ├── design-dna.md
     ├── copy-sections.md
     ├── implementation-plan.md
+    ├── image-prompts.json
     └── qa-report.md
 ```
 
@@ -89,7 +99,17 @@ This launches an interactive workflow that creates a complete, production-ready 
 - **Subagent-Driven Development** - Fresh context for each task
 - **Code Review After Each Task** - Uses `superpowers:code-reviewer`
 - **Anti-Generic Design** - Uses `frontend-design-o` for distinctive visuals
+- **AI-Generated Images** - Custom visuals created based on design context
 - **Quality Gate** - QA must pass with 80+ score
+
+## Image Generation
+
+The workflow includes AI-powered image generation:
+
+- **Context-Aware** - Images generated based on brainstorm, design DNA, and copy
+- **Flexible Generation** - Supports MCP tools, APIs, or browser automation
+- **Optimized Output** - All images saved as WebP for fast loading
+- **Automatic Integration** - Generated images referenced in implementation plan
 
 ## Plugin Contents
 
@@ -102,6 +122,9 @@ This launches an interactive workflow that creates a complete, production-ready 
 | lp-design-dna | Design system creation |
 | lp-text-composing | Copywriting with frameworks |
 | lp-planning | Implementation task breakdown |
+| lp-image-prompts | Creates JSON with image generation prompts |
+| lp-image-generation | Generates images using configured model (MCP/API/Browser) |
+| lp-image-integration | Integrates generated images into implementation plan |
 | lp-building | Subagent-driven implementation |
 | lp-qa-review | Quality assurance scoring |
 

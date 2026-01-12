@@ -75,6 +75,74 @@ Before starting, verify these exist in `[project-folder]/`:
 - `[project-folder]/docs/implementation-plan.md` - Task breakdown
 - `[project-folder]/docs/design-dna.md` - All styling specifications (created with frontend-design-o)
 - `[project-folder]/docs/copy-sections.md` - All text content
+- `[project-folder]/assets/images/` - Generated images
+
+## Using Generated Assets
+
+**CRITICAL: Check implementation-plan.md for image assets before building each section.**
+
+### Step 1: Check Available Assets
+
+At the top of `implementation-plan.md`, find the "Available Assets" section:
+
+```markdown
+## Available Assets
+
+| Image | Path | Usage |
+|-------|------|-------|
+| hero-bg.webp | assets/images/hero-bg.webp | Hero section background |
+| icon-speed.webp | assets/images/icon-speed.webp | Speed feature icon |
+| ...
+```
+
+### Step 2: Check Task-Specific Images
+
+For each task in the plan, look for the "Images to use" subsection:
+
+```markdown
+### Task 4: Hero Section
+...
+**Images to use:**
+- `assets/images/hero-bg.webp` - Use as section background
+- `assets/images/hero-illustration.webp` - Position on right side
+```
+
+### Step 3: Integrate Images as Specified
+
+Use the exact paths and positions from the plan:
+
+**For Background Images:**
+```css
+.hero {
+  background-image: url('../assets/images/hero-bg.webp');
+  background-size: cover;
+  background-position: center;
+}
+```
+
+**For Inline Images:**
+```html
+<img src="assets/images/icon-speed.webp" alt="Speed icon" class="feature-icon">
+```
+
+**For Decorative Elements:**
+```css
+.section::after {
+  content: '';
+  background-image: url('../assets/images/decoration.webp');
+  /* positioning styles */
+}
+```
+
+### Image Integration Rules
+
+1. **Use exact paths** - Copy paths exactly from implementation-plan.md
+2. **Respect positions** - background, inline, decorative as specified
+3. **Add descriptive alt text** - Required for all inline images
+4. **CSS for backgrounds** - Use background-image property
+5. **HTML for content images** - Use img tags with proper alt text
+6. **Consider responsive** - Use srcset if multiple sizes provided
+7. **Maintain aspect ratios** - Use object-fit when needed
 
 ## Output Files
 
@@ -191,6 +259,11 @@ Task tool:
     ## Copy Content
     [Exact copy from copy-sections.md]
 
+    ## Available Images
+    Check implementation-plan.md for "Images to use" in this task.
+    Use images from [project-folder]/assets/images/ as specified.
+    [List specific images for this section from plan]
+
     ## Files
     - [project-folder]/index.html (add/modify section)
     - [project-folder]/style.css (add/modify styles)
@@ -203,6 +276,7 @@ Task tool:
     - Proper icon library icons
     - Include background shapes/patterns from design-dna
     - Include section dividers from design-dna
+    - Use provided images exactly as specified in plan
     - Mobile-first responsive"
     ```
 
@@ -235,12 +309,18 @@ Task tool:
     ### Copy Reference
     [Include relevant sections from copy-sections.md]
 
+    ### Available Images
+    Check implementation-plan.md for "Images to use" in this task.
+    Use images from [project-folder]/assets/images/ as specified.
+    [List specific images for this section from plan, if any]
+
     ### Rules
     1. Use EXACT colors/fonts/spacing from design-dna.md
     2. Copy text EXACTLY from copy-sections.md
     3. Write clean, semantic HTML
     4. Use CSS custom properties defined in :root
     5. Mobile-first responsive approach
+    6. Use provided images exactly as specified in plan
 
     ### Files to Modify
     - [project-folder]/index.html
