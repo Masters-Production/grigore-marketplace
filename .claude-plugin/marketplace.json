@@ -1,21 +1,23 @@
 {
-  "name": "grigore-marketing-marketplace",
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "grigore-marketplace",
   "description": "Marketplace for marketing and automation plugins",
   "owner": {
-    "name": "Grigore Lipcanu"
+    "name": "Grigore Lipcanu",
+    "email": "contact@grigorelipcanu.com"
   },
   "plugins": [
     {
       "name": "landing-pages",
-      "source": {
-        "source": "url",
-        "url": "https://github.com/Masters-Production/landing-pages.git"
-      },
       "description": "Professional landing page creation workflow with brainstorming, design DNA, copywriting, and automated building",
       "version": "1.0.0",
-      "category": "development-workflows",
-      "tags": ["landing-page", "web-design", "copywriting", "automation"],
-      "keywords": ["landing-page", "design-system", "workflow"]
+      "author": {
+        "name": "Grigore Lipcanu",
+        "email": "contact@grigorelipcanu.com"
+      },
+      "source": "./landing-pages",
+      "category": "development",
+      "tags": ["landing-page", "web-design", "copywriting", "automation", "workflow"]
     }
   ]
 }

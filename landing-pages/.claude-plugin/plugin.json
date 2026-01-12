@@ -1,0 +1,25 @@
+{
+  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
+  "name": "landing-pages",
+  "description": "Professional landing page creation workflow with brainstorming, design DNA, copywriting, and automated building",
+  "version": "1.0.0",
+  "author": {
+    "name": "Grigore Lipcanu",
+    "email": "contact@grigorelipcanu.com"
+  },
+  "repository": "https://github.com/Masters-Production/landing-pages",
+  "license": "MIT",
+  "keywords": [
+    "landing-page",
+    "web-design",
+    "copywriting",
+    "design-system",
+    "workflow",
+    "automation"
+  ],
+  "components": {
+    "commands": ["commands/"],
+    "agents": ["agents/"],
+    "skills": ["skills/"]
+  }
+}
