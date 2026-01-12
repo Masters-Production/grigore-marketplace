@@ -13,16 +13,21 @@ You are performing a comprehensive quality assurance review of the completed lan
 2. **Test thoroughly** - Actually verify each item
 3. **Document issues** - Specific file:line references
 4. **Minimum score: 80** - Below 80 = needs fixes
-5. **Output artifact** - Create docs/qa-report.md
+5. **Output artifact** - Create `[project-folder]/docs/qa-report.md`
 
-## Input Files
+## Input/Output Paths
 
-Review these files:
-- `index.html` - Page markup
-- `style.css` - Styling
-- `script.js` - Interactions
-- `docs/design-dna.md` - Expected design
-- `docs/copy-sections.md` - Expected content
+All files are in the project folder provided by the orchestrator.
+
+### Files to Review
+- `[project-folder]/index.html` - Page markup
+- `[project-folder]/style.css` - Styling
+- `[project-folder]/script.js` - Interactions
+- `[project-folder]/docs/design-dna.md` - Expected design
+- `[project-folder]/docs/copy-sections.md` - Expected content
+
+### Output
+- `[project-folder]/docs/qa-report.md`
 
 ## Scoring System
 
@@ -186,7 +191,7 @@ Compare against copy-sections.md:
 
 ## Output Artifact
 
-Create `docs/qa-report.md`:
+Create `[project-folder]/docs/qa-report.md`:
 
 ```markdown
 # QA Report: [Project Name]

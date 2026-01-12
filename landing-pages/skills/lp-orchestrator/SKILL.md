@@ -13,61 +13,90 @@ You are orchestrating the creation of a professional landing page. This is a mul
 2. **Use AskUserQuestion throughout** - Never assume, always ask
 3. **Wait for each skill to complete** - Check artifacts exist before proceeding
 4. **Quality gates matter** - If QA fails (<80 score), iterate
+5. **Use TodoWrite** - Create todos for ALL steps at the beginning
+6. **All files in project folder** - Everything goes in `[project-folder]/`
+
+## Required Sub-Skills
+
+- `landing-pages:lp-brainstorming` - Step 1
+- `landing-pages:lp-design-dna` - Step 2
+- `landing-pages:lp-text-composing` - Step 3
+- `landing-pages:lp-planning` - Step 4
+- `landing-pages:lp-building` - Step 5 (uses subagent-driven development)
+- `landing-pages:lp-qa-review` - Step 6
+- `superpowers:finishing-a-development-branch` - Final completion
 
 ## Workflow Sequence
 
 ```
-Step 1: lp-brainstorming → docs/brainstorm-brief.md
+Step 0: Project Setup → Create [project-folder]/ and [project-folder]/docs/
     ↓
-Step 2: lp-design-dna → docs/design-dna.md
+Step 1: lp-brainstorming → [project-folder]/docs/brainstorm-brief.md
     ↓
-Step 3: lp-text-composing → docs/copy-sections.md
+Step 2: lp-design-dna → [project-folder]/docs/design-dna.md
     ↓
-Step 4: lp-planning → docs/implementation-plan.md
+Step 3: lp-text-composing → [project-folder]/docs/copy-sections.md
     ↓
-Step 5: lp-building → index.html, style.css, script.js
+Step 4: lp-planning → [project-folder]/docs/implementation-plan.md
     ↓
-Step 6: lp-qa-review → docs/qa-report.md (score >= 80)
+Step 5: lp-building → [project-folder]/index.html, style.css, script.js
+    ↓
+Step 6: lp-qa-review → [project-folder]/docs/qa-report.md (score >= 80)
+    ↓
+Step 7: finishing-a-development-branch → Complete
 ```
 
-## Starting the Workflow
+## Step 0: Project Setup (MANDATORY FIRST STEP)
 
-### 1. Initial Setup
-
-First, ask the user for a project name:
-
+**1. Ask user for folder name:**
 ```
 Use AskUserQuestion:
-Question: "What should we name this landing page project?"
-Header: "Project Name"
+Question: "Cum să numesc folderul pentru acest landing page?"
+Header: "Folder Name"
 Options:
-- "Let me type a name" → freeform input
-- "Suggest based on my description" → you'll suggest after hearing about it
+- "product-landing"
+- "service-landing"
+- "campaign-landing"
+(User can also type custom name via "Other")
 ```
 
-Create the project folder structure:
+**2. Create project structure:**
+```bash
+mkdir [project-folder]
+mkdir [project-folder]/docs
 ```
-[project-name]/
-├── index.html
-├── style.css
-├── script.js
+
+**3. Create TodoWrite with ALL steps:**
+```
+TodoWrite todos:
+- Step 0: Project Setup - COMPLETED
+- Step 1: Brainstorming - pending
+- Step 2: Design DNA - pending
+- Step 3: Text Composing - pending
+- Step 4: Planning - pending
+- Step 5: Building - pending
+- Step 6: QA Review - pending
+- Step 7: Finish Development - pending
+```
+
+**4. Confirm structure:**
+```
+[project-folder]/
 └── docs/
-    ├── brainstorm-brief.md
-    ├── design-dna.md
-    ├── copy-sections.md
-    └── implementation-plan.md
 ```
 
-### 2. Execute Skills in Sequence
+**All subsequent skills will use `[project-folder]/` as the base path.**
 
-For each step, invoke the corresponding skill:
+## Execute Skills in Sequence
+
+For each step, invoke the corresponding skill. **Mark TodoWrite as in_progress before starting, completed after finishing.**
 
 **Step 1: Brainstorming**
 ```
 REQUIRED SUB-SKILL: Use landing-pages:lp-brainstorming
 
 Input: None (skill will ask questions)
-Output: docs/brainstorm-brief.md
+Output: [project-folder]/docs/brainstorm-brief.md
 Verify: File exists and contains all required sections
 ```
 
@@ -75,8 +104,8 @@ Verify: File exists and contains all required sections
 ```
 REQUIRED SUB-SKILL: Use landing-pages:lp-design-dna
 
-Input: docs/brainstorm-brief.md (for context)
-Output: docs/design-dna.md
+Input: [project-folder]/docs/brainstorm-brief.md (for context)
+Output: [project-folder]/docs/design-dna.md
 Verify: File contains color palette, typography, spacing, components
 ```
 
@@ -84,8 +113,8 @@ Verify: File contains color palette, typography, spacing, components
 ```
 REQUIRED SUB-SKILL: Use landing-pages:lp-text-composing
 
-Input: docs/brainstorm-brief.md
-Output: docs/copy-sections.md
+Input: [project-folder]/docs/brainstorm-brief.md
+Output: [project-folder]/docs/copy-sections.md
 Verify: File contains copy for all planned sections
 ```
 
@@ -93,17 +122,22 @@ Verify: File contains copy for all planned sections
 ```
 REQUIRED SUB-SKILL: Use landing-pages:lp-planning
 
-Input: docs/brainstorm-brief.md, docs/design-dna.md, docs/copy-sections.md
-Output: docs/implementation-plan.md
+Input: [project-folder]/docs/brainstorm-brief.md, design-dna.md, copy-sections.md
+Output: [project-folder]/docs/implementation-plan.md
 Verify: File contains task breakdown with steps
 ```
 
-**Step 5: Building**
+**Step 5: Building (Subagent-Driven)**
 ```
 REQUIRED SUB-SKILL: Use landing-pages:lp-building
 
-Input: All docs/* files
-Output: index.html, style.css, script.js
+This step uses SUBAGENT-DRIVEN DEVELOPMENT:
+- Dispatch fresh subagent for each task from implementation-plan.md
+- Use superpowers:code-reviewer after each task
+- Use frontend-design-o for visual sections
+
+Input: All [project-folder]/docs/* files
+Output: [project-folder]/index.html, [project-folder]/style.css, [project-folder]/script.js
 Verify: All three files exist and are valid
 ```
 
@@ -111,8 +145,8 @@ Verify: All three files exist and are valid
 ```
 REQUIRED SUB-SKILL: Use landing-pages:lp-qa-review
 
-Input: All output files
-Output: docs/qa-report.md
+Input: All [project-folder]/ output files
+Output: [project-folder]/docs/qa-report.md
 Verify: Score >= 80
 
 If score < 80:
@@ -122,44 +156,53 @@ If score < 80:
   - Repeat until score >= 80
 ```
 
+**Step 7: Finish Development**
+```
+REQUIRED SUB-SKILL: Use superpowers:finishing-a-development-branch
+
+After QA passes, complete the development cycle.
+```
+
 ## Progress Tracking
 
-After each step, report progress to user:
+Use TodoWrite to track progress. After each step, update status:
 
 ```markdown
 ## Landing Page Progress
 
 | Step | Status | Artifact |
 |------|--------|----------|
-| 1. Brainstorming | ✅ Complete | brainstorm-brief.md |
-| 2. Design DNA | ✅ Complete | design-dna.md |
-| 3. Text Composing | 🔄 In Progress | copy-sections.md |
-| 4. Planning | ⏳ Pending | implementation-plan.md |
-| 5. Building | ⏳ Pending | index.html, style.css, script.js |
-| 6. QA Review | ⏳ Pending | qa-report.md |
+| 0. Project Setup | ✅ Complete | [project-folder]/ created |
+| 1. Brainstorming | ✅ Complete | [project-folder]/docs/brainstorm-brief.md |
+| 2. Design DNA | ✅ Complete | [project-folder]/docs/design-dna.md |
+| 3. Text Composing | 🔄 In Progress | [project-folder]/docs/copy-sections.md |
+| 4. Planning | ⏳ Pending | [project-folder]/docs/implementation-plan.md |
+| 5. Building | ⏳ Pending | [project-folder]/index.html, style.css, script.js |
+| 6. QA Review | ⏳ Pending | [project-folder]/docs/qa-report.md |
+| 7. Finish | ⏳ Pending | Complete development |
 ```
 
 ## Completion
 
-When QA passes (score >= 80), provide summary:
+When QA passes (score >= 80), run `superpowers:finishing-a-development-branch`, then provide summary:
 
 ```markdown
 ## Landing Page Complete!
 
-**Project:** [project-name]
+**Project:** [project-folder]/
 **QA Score:** [X]/100
 
 ### Files Created
-- `index.html` - [X] lines
-- `style.css` - [X] lines
-- `script.js` - [X] lines
+- `[project-folder]/index.html` - [X] lines
+- `[project-folder]/style.css` - [X] lines
+- `[project-folder]/script.js` - [X] lines
 
 ### Documentation
-- `docs/brainstorm-brief.md`
-- `docs/design-dna.md`
-- `docs/copy-sections.md`
-- `docs/implementation-plan.md`
-- `docs/qa-report.md`
+- `[project-folder]/docs/brainstorm-brief.md`
+- `[project-folder]/docs/design-dna.md`
+- `[project-folder]/docs/copy-sections.md`
+- `[project-folder]/docs/implementation-plan.md`
+- `[project-folder]/docs/qa-report.md`
 
 ### Next Steps
 1. Add real images to replace placeholders

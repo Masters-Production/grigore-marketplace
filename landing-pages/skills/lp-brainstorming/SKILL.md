@@ -12,7 +12,11 @@ You are conducting a brainstorming session to understand exactly what landing pa
 1. **Ask questions one at a time** - Don't overwhelm with all questions at once
 2. **Use AskUserQuestion tool** - Always provide options + "Other" for custom input
 3. **Summarize and confirm** - After gathering info, show summary for approval
-4. **Output artifact** - Create docs/brainstorm-brief.md when complete
+4. **Output artifact** - Create `[project-folder]/docs/brainstorm-brief.md` when complete
+
+## Input
+
+The orchestrator will provide the project folder path. All output goes to `[project-folder]/docs/`.
 
 ## Question Flow
 
@@ -205,7 +209,7 @@ Use AskUserQuestion to confirm or allow edits.
 
 ## Output Artifact
 
-Once confirmed, create `docs/brainstorm-brief.md`:
+Once confirmed, create `[project-folder]/docs/brainstorm-brief.md`:
 
 ```markdown
 # Landing Page Brief
@@ -252,4 +256,4 @@ Once confirmed, create `docs/brainstorm-brief.md`:
 After creating the artifact:
 1. Confirm file was created
 2. Report back to orchestrator that Step 1 is complete
-3. Provide path to artifact: `docs/brainstorm-brief.md`
+3. Provide path to artifact: `[project-folder]/docs/brainstorm-brief.md`

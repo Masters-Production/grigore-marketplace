@@ -1,5 +1,4 @@
 {
-  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "grigore-marketplace",
   "description": "Marketplace for marketing and automation plugins",
   "owner": {

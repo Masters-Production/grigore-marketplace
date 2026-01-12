@@ -12,14 +12,20 @@ You are creating a complete design system for the landing page. This step REQUIR
 1. **Read brainstorm-brief first** - Understand the context before designing
 2. **MANDATORY: Use frontend-design-o skill** - This is NOT optional
 3. **Be specific** - Exact hex codes, exact pixel values, exact CSS properties
-4. **Output artifact** - Create docs/design-dna.md when complete
+4. **Output artifact** - Create `[project-folder]/docs/design-dna.md` when complete
 5. **NO GENERIC DESIGNS** - NEVER use default framework colors, emoji icons, or template layouts
+
+## Input/Output Paths
+
+All files are in the project folder provided by the orchestrator:
+- **Input:** `[project-folder]/docs/brainstorm-brief.md`
+- **Output:** `[project-folder]/docs/design-dna.md`
 
 ## MANDATORY WORKFLOW
 
 ### Step 1: Read Context
 
-Read `docs/brainstorm-brief.md` to understand:
+Read `[project-folder]/docs/brainstorm-brief.md` to understand:
 - Type of landing page
 - Target audience
 - Tone of voice
@@ -95,7 +101,7 @@ After frontend-design-o returns the design:
 
 ### Step 5: Output Artifact
 
-Create `docs/design-dna.md` with the complete design system.
+Create `[project-folder]/docs/design-dna.md` with the complete design system.
 
 ## ANTI-GENERIC REQUIREMENTS
 
@@ -134,10 +140,10 @@ Create `docs/design-dna.md` with the complete design system.
 ## Integration Points
 
 ### From Previous Step
-- `docs/brainstorm-brief.md` - Context for design decisions
+- `[project-folder]/docs/brainstorm-brief.md` - Context for design decisions
 
 ### To Next Step
-- `docs/design-dna.md` - Complete design system for building
+- `[project-folder]/docs/design-dna.md` - Complete design system for building
 
 ## Completion
 
@@ -145,7 +151,7 @@ After creating the artifact:
 1. Confirm design-dna.md was created
 2. Verify all quality checklist items pass
 3. Report to orchestrator: "Step 2 complete - Design DNA created with distinctive, professional design"
-4. Provide path: `docs/design-dna.md`
+4. Provide path: `[project-folder]/docs/design-dna.md`
 
 ---
 

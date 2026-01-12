@@ -7,14 +7,44 @@ description: Step 5 of landing page creation - implement the landing page using 
 
 You are implementing the landing page by executing the implementation plan. Use subagents to build each section and reviewers to verify quality.
 
+## Required Sub-Skills
+
+- `superpowers:subagent-driven-development` - REQUIRED: The base pattern for this workflow
+- `frontend-design-o` - REQUIRED: For ALL visual sections
+- `superpowers:code-reviewer` - REQUIRED: Review after EACH task
+- `superpowers:finishing-a-development-branch` - REQUIRED: At completion
+
 ## CRITICAL RULES
 
-1. **Read all artifacts first** - Plan, design-dna, copy-sections
-2. **One task per subagent** - Fresh context for each task
-3. **Review after each task** - Catch issues early
-4. **Follow design-dna exactly** - No improvisation
-5. **Commit after each task** - Atomic commits
-6. **MANDATORY: Use frontend-design-o for visual sections** - Hero, cards, features
+1. **Read all artifacts first** - Plan, design-dna, copy-sections from `[project-folder]/docs/`
+2. **Create TodoWrite first** - ALL tasks from implementation-plan.md
+3. **One task per subagent** - Fresh context for each task
+4. **Review after each task** - Use `superpowers:code-reviewer`
+5. **Follow design-dna exactly** - No improvisation
+6. **Commit after each task** - Atomic commits
+7. **MANDATORY: Use frontend-design-o for visual sections** - Hero, cards, features
+
+## BEFORE STARTING: Create TodoWrite
+
+**This is MANDATORY. Do not skip.**
+
+```
+1. Read [project-folder]/docs/implementation-plan.md
+2. Create TodoWrite with ALL tasks from the plan
+3. Mark first task as in_progress
+4. Proceed with building
+```
+
+Example TodoWrite:
+```
+todos:
+- Task 1: Setup - in_progress
+- Task 2: CSS Foundation - pending
+- Task 3: Navigation - pending
+- Task 4: Hero Section - pending
+- Task 5: Problem Section - pending
+...
+```
 
 ## MANDATORY frontend-design-o USAGE
 
@@ -61,10 +91,17 @@ OUTPUT:
 
 ## Input Files
 
-Before starting, verify these exist:
-- `docs/implementation-plan.md` - Task breakdown
-- `docs/design-dna.md` - All styling specifications (created with frontend-design-o)
-- `docs/copy-sections.md` - All text content
+Before starting, verify these exist in `[project-folder]/`:
+- `[project-folder]/docs/implementation-plan.md` - Task breakdown
+- `[project-folder]/docs/design-dna.md` - All styling specifications (created with frontend-design-o)
+- `[project-folder]/docs/copy-sections.md` - All text content
+
+## Output Files
+
+All output goes to `[project-folder]/`:
+- `[project-folder]/index.html`
+- `[project-folder]/style.css`
+- `[project-folder]/script.js`
 
 ## Building Pattern
 
@@ -189,24 +226,16 @@ Complete this task and report what you implemented.
 """
 ```
 
-### Reviewer Subagent (Enhanced)
+### Reviewer: Use superpowers:code-reviewer
 
-Use Task tool with `subagent_type: "general-purpose"`:
+**REQUIRED: Use `superpowers:code-reviewer` after EACH task.**
 
 ```
-Prompt:
-"""
-You are a code reviewer checking Task [N] implementation.
+Use Skill tool:
+skill: "superpowers:code-reviewer"
+```
 
-## Check Against
-
-### Design DNA Requirements
-[Relevant design-dna sections]
-
-### Copy Requirements
-[Relevant copy-sections content]
-
-## Review Checklist
+The code-reviewer will check:
 - [ ] Colors match design-dna hex values (NO framework defaults)
 - [ ] Typography matches design-dna sizes and fonts
 - [ ] Spacing matches design-dna scale
@@ -219,14 +248,8 @@ You are a code reviewer checking Task [N] implementation.
 - [ ] No console errors
 - [ ] Design looks DISTINCTIVE, not generic template
 
-## Output
-Report:
-1. PASS or FAIL
-2. If FAIL: List specific issues with file:line references
-3. CRITICAL: Flag any generic/template-like elements
-4. Improvement suggestions (optional)
-"""
-```
+**If reviewer finds CRITICAL issues: FIX before proceeding.**
+**If reviewer finds non-critical issues: Fix or note for later.**
 
 ## Anti-Generic Quality Gate
 
@@ -344,10 +367,10 @@ style(landing): adjust mobile spacing
 
 When all tasks are complete:
 
-1. Verify all files exist:
-   - `index.html`
-   - `style.css`
-   - `script.js`
+1. Verify all files exist in `[project-folder]/`:
+   - `[project-folder]/index.html`
+   - `[project-folder]/style.css`
+   - `[project-folder]/script.js`
 
 2. Run final quality check:
    - All sections present
@@ -357,10 +380,21 @@ When all tasks are complete:
    - **NO generic/template elements**
    - **All distinctive design elements present**
 
-3. Report to orchestrator:
+3. Mark all TodoWrite items as completed
+
+4. Report to orchestrator:
    - Step 5 complete
-   - Files created
+   - Files created in `[project-folder]/`
    - Ready for QA review
+
+## After QA Passes
+
+**REQUIRED: Use `superpowers:finishing-a-development-branch` to complete the development cycle.**
+
+```
+Use Skill tool:
+skill: "superpowers:finishing-a-development-branch"
+```
 
 ## Quality Reminders
 

@@ -13,14 +13,20 @@ You are creating a detailed implementation plan for building the landing page. B
 2. **Bite-sized tasks** - Each task should be completable in one focused session
 3. **Clear dependencies** - Order tasks logically, note what each needs
 4. **Specific instructions** - Include exact files, sections, and references
-5. **Output artifact** - Create docs/implementation-plan.md when complete
+5. **Output artifact** - Create `[project-folder]/docs/implementation-plan.md` when complete
 
-## Input Files
+## Input/Output Paths
 
+All files are in the project folder provided by the orchestrator.
+
+### Input Files
 Read and understand:
-- `docs/brainstorm-brief.md` - What sections are planned
-- `docs/design-dna.md` - All styling specifications
-- `docs/copy-sections.md` - All text content
+- `[project-folder]/docs/brainstorm-brief.md` - What sections are planned
+- `[project-folder]/docs/design-dna.md` - All styling specifications
+- `[project-folder]/docs/copy-sections.md` - All text content
+
+### Output Files
+- `[project-folder]/docs/implementation-plan.md` - Task breakdown for building
 
 ## Planning Process
 
@@ -56,8 +62,8 @@ Each section becomes 1-2 tasks:
 - `script.js` - Add [specific functionality] (if needed)
 
 **Reference:**
-- Copy from: `docs/copy-sections.md` → [Section]
-- Styles from: `docs/design-dna.md` → [Component]
+- Copy from: `[project-folder]/docs/copy-sections.md` → [Section]
+- Styles from: `[project-folder]/docs/design-dna.md` → [Component]
 
 **Steps:**
 1. [Specific step 1]
@@ -86,7 +92,7 @@ Options:
 
 ## Output Artifact
 
-Create `docs/implementation-plan.md`:
+Create `[project-folder]/docs/implementation-plan.md`:
 
 ```markdown
 # Landing Page Implementation Plan
@@ -97,14 +103,14 @@ Create `docs/implementation-plan.md`:
 
 **Total Tasks:** [X]
 **Files to Create:**
-- `index.html` - Page structure and content
-- `style.css` - All styling following design-dna
-- `script.js` - Interactions and animations
+- `[project-folder]/index.html` - Page structure and content
+- `[project-folder]/style.css` - All styling following design-dna
+- `[project-folder]/script.js` - Interactions and animations
 
 **Prerequisites:**
-- `docs/brainstorm-brief.md` ✓
-- `docs/design-dna.md` ✓
-- `docs/copy-sections.md` ✓
+- `[project-folder]/docs/brainstorm-brief.md` ✓
+- `[project-folder]/docs/design-dna.md` ✓
+- `[project-folder]/docs/copy-sections.md` ✓
 
 ---
 
@@ -113,9 +119,9 @@ Create `docs/implementation-plan.md`:
 **Goal:** Create file structure and base HTML/CSS
 
 **Files:**
-- Create `index.html`
-- Create `style.css`
-- Create `script.js`
+- Create `[project-folder]/index.html`
+- Create `[project-folder]/style.css`
+- Create `[project-folder]/script.js`
 
 **Steps:**
 1. Create index.html with HTML5 boilerplate
@@ -137,10 +143,10 @@ Create `docs/implementation-plan.md`:
 **Goal:** Implement CSS variables and base styles from design-dna
 
 **Files:**
-- `style.css`
+- `[project-folder]/style.css`
 
 **Reference:**
-- `docs/design-dna.md` → Colors, Typography, Spacing
+- `[project-folder]/docs/design-dna.md` → Colors, Typography, Spacing
 
 **Steps:**
 1. Add CSS reset (box-sizing, margins)
@@ -182,13 +188,13 @@ Create `docs/implementation-plan.md`:
 **Goal:** Build responsive navigation
 
 **Files:**
-- `index.html` → `<header>` section
-- `style.css` → Header styles
-- `script.js` → Mobile menu toggle (if needed)
+- `[project-folder]/index.html` → `<header>` section
+- `[project-folder]/style.css` → Header styles
+- `[project-folder]/script.js` → Mobile menu toggle (if needed)
 
 **Reference:**
-- `docs/copy-sections.md` → Navigation items
-- `docs/design-dna.md` → Component styles
+- `[project-folder]/docs/copy-sections.md` → Navigation items
+- `[project-folder]/docs/design-dna.md` → Component styles
 
 **Steps:**
 1. Add logo placeholder
@@ -211,12 +217,12 @@ Create `docs/implementation-plan.md`:
 **Goal:** Build hero section with headline, subheadline, CTA
 
 **Files:**
-- `index.html` → `<section class="hero">`
-- `style.css` → Hero styles
+- `[project-folder]/index.html` → `<section class="hero">`
+- `[project-folder]/style.css` → Hero styles
 
 **Reference:**
-- `docs/copy-sections.md` → Hero Section
-- `docs/design-dna.md` → Hero Section, Buttons
+- `[project-folder]/docs/copy-sections.md` → Hero Section
+- `[project-folder]/docs/design-dna.md` → Hero Section, Buttons
 
 **Steps:**
 1. Add hero HTML structure
@@ -240,12 +246,12 @@ Create `docs/implementation-plan.md`:
 **Goal:** Build problem section with PAS content
 
 **Files:**
-- `index.html` → `<section class="problem">`
-- `style.css` → Problem section styles
+- `[project-folder]/index.html` → `<section class="problem">`
+- `[project-folder]/style.css` → Problem section styles
 
 **Reference:**
-- `docs/copy-sections.md` → Problem Section
-- `docs/design-dna.md` → Typography, Spacing
+- `[project-folder]/docs/copy-sections.md` → Problem Section
+- `[project-folder]/docs/design-dna.md` → Typography, Spacing
 
 **Steps:**
 1. Add section HTML structure
@@ -268,12 +274,12 @@ Create `docs/implementation-plan.md`:
 **Goal:** Build benefits grid/list
 
 **Files:**
-- `index.html` → `<section class="benefits">`
-- `style.css` → Benefits styles
+- `[project-folder]/index.html` → `<section class="benefits">`
+- `[project-folder]/style.css` → Benefits styles
 
 **Reference:**
-- `docs/copy-sections.md` → Benefits Section
-- `docs/design-dna.md` → Cards, Typography
+- `[project-folder]/docs/copy-sections.md` → Benefits Section
+- `[project-folder]/docs/design-dna.md` → Cards, Typography
 
 **Steps:**
 1. Add section headline
@@ -296,12 +302,12 @@ Create `docs/implementation-plan.md`:
 **Goal:** Build testimonials/stats section
 
 **Files:**
-- `index.html` → `<section class="social-proof">`
-- `style.css` → Testimonial styles
+- `[project-folder]/index.html` → `<section class="social-proof">`
+- `[project-folder]/style.css` → Testimonial styles
 
 **Reference:**
-- `docs/copy-sections.md` → Social Proof Section
-- `docs/design-dna.md` → Cards, Typography
+- `[project-folder]/docs/copy-sections.md` → Social Proof Section
+- `[project-folder]/docs/design-dna.md` → Cards, Typography
 
 **Steps:**
 1. Add section headline
@@ -324,13 +330,13 @@ Create `docs/implementation-plan.md`:
 **Goal:** Build FAQ accordion
 
 **Files:**
-- `index.html` → `<section class="faq">`
-- `style.css` → FAQ styles
-- `script.js` → Accordion functionality
+- `[project-folder]/index.html` → `<section class="faq">`
+- `[project-folder]/style.css` → FAQ styles
+- `[project-folder]/script.js` → Accordion functionality
 
 **Reference:**
-- `docs/copy-sections.md` → FAQ Section
-- `docs/design-dna.md` → Typography
+- `[project-folder]/docs/copy-sections.md` → FAQ Section
+- `[project-folder]/docs/design-dna.md` → Typography
 
 **Steps:**
 1. Add section headline
@@ -353,12 +359,12 @@ Create `docs/implementation-plan.md`:
 **Goal:** Build closing CTA with urgency
 
 **Files:**
-- `index.html` → `<section class="final-cta">`
-- `style.css` → Final CTA styles
+- `[project-folder]/index.html` → `<section class="final-cta">`
+- `[project-folder]/style.css` → Final CTA styles
 
 **Reference:**
-- `docs/copy-sections.md` → Final CTA Section
-- `docs/design-dna.md` → Buttons, Hero styles
+- `[project-folder]/docs/copy-sections.md` → Final CTA Section
+- `[project-folder]/docs/design-dna.md` → Buttons, Hero styles
 
 **Steps:**
 1. Add section headline
@@ -381,12 +387,12 @@ Create `docs/implementation-plan.md`:
 **Goal:** Build footer with links and legal
 
 **Files:**
-- `index.html` → `<footer>`
-- `style.css` → Footer styles
+- `[project-folder]/index.html` → `<footer>`
+- `[project-folder]/style.css` → Footer styles
 
 **Reference:**
-- `docs/copy-sections.md` → Footer content
-- `docs/design-dna.md` → Typography, Colors
+- `[project-folder]/docs/copy-sections.md` → Footer content
+- `[project-folder]/docs/design-dna.md` → Typography, Colors
 
 **Steps:**
 1. Add footer structure
@@ -409,11 +415,11 @@ Create `docs/implementation-plan.md`:
 **Goal:** Add micro-interactions and scroll animations
 
 **Files:**
-- `style.css` → Animation classes
-- `script.js` → Scroll trigger logic
+- `[project-folder]/style.css` → Animation classes
+- `[project-folder]/script.js` → Scroll trigger logic
 
 **Reference:**
-- `docs/design-dna.md` → Micro-interactions
+- `[project-folder]/docs/design-dna.md` → Micro-interactions
 
 **Steps:**
 1. Add CSS transition classes
@@ -436,10 +442,10 @@ Create `docs/implementation-plan.md`:
 **Goal:** Ensure fully responsive design
 
 **Files:**
-- `style.css` → Media queries
+- `[project-folder]/style.css` → Media queries
 
 **Reference:**
-- `docs/design-dna.md` → Responsive Breakpoints
+- `[project-folder]/docs/design-dna.md` → Responsive Breakpoints
 
 **Steps:**
 1. Test at 375px (mobile)
@@ -461,8 +467,8 @@ Create `docs/implementation-plan.md`:
 ## Execution Notes
 
 **For Builder Subagents:**
-- Read design-dna.md before writing ANY CSS
-- Copy text exactly from copy-sections.md
+- Read `[project-folder]/docs/design-dna.md` before writing ANY CSS
+- Copy text exactly from `[project-folder]/docs/copy-sections.md`
 - Commit after each task
 - Run visual check before marking complete
 
@@ -480,4 +486,4 @@ feat(landing): [task description]
 After creating the artifact:
 1. Confirm implementation-plan.md was created
 2. Report back to orchestrator that Step 4 is complete
-3. Provide path to artifact: `docs/implementation-plan.md`
+3. Provide path to artifact: `[project-folder]/docs/implementation-plan.md`

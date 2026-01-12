@@ -13,7 +13,13 @@ You are writing marketing copy that converts visitors into customers. Use proven
 2. **Use copywriting frameworks** - 4U for headlines, PAS for problem sections
 3. **Propose variants** - Always give 2-3 options for headlines
 4. **User approves each section** - Use AskUserQuestion for choices
-5. **Output artifact** - Create docs/copy-sections.md when complete
+5. **Output artifact** - Create `[project-folder]/docs/copy-sections.md` when complete
+
+## Input/Output Paths
+
+All files are in the project folder provided by the orchestrator:
+- **Input:** `[project-folder]/docs/brainstorm-brief.md`
+- **Output:** `[project-folder]/docs/copy-sections.md`
 
 ## Copywriting Frameworks
 
@@ -25,9 +31,9 @@ You are writing marketing copy that converts visitors into customers. Use proven
 | **FAB** | Benefits | Feature → Advantage → Benefit |
 | **Social Proof** | Trust | Testimonials, numbers, logos |
 
-## Input
+## Reading Input
 
-Read `docs/brainstorm-brief.md` to understand:
+Read `[project-folder]/docs/brainstorm-brief.md` to understand:
 - Target audience and their language
 - Main problem/pain point
 - Solution and benefits
@@ -196,7 +202,7 @@ Create urgency and reinforce action:
 
 ## Output Artifact
 
-Create `docs/copy-sections.md`:
+Create `[project-folder]/docs/copy-sections.md`:
 
 ```markdown
 # Landing Page Copy
@@ -339,4 +345,4 @@ Before completing, verify:
 After creating the artifact:
 1. Confirm copy-sections.md was created
 2. Report back to orchestrator that Step 3 is complete
-3. Provide path to artifact: `docs/copy-sections.md`
+3. Provide path to artifact: `[project-folder]/docs/copy-sections.md`
