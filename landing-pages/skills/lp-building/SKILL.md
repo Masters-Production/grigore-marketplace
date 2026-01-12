@@ -48,7 +48,7 @@ todos:
 
 ## MANDATORY frontend-design-o USAGE
 
-**This is NOT optional. Visual sections MUST use the frontend-design-o skill.**
+**This is NOT optional. Visual sections MUST use the frontend-design-o skill via subagent.**
 
 ### Visual Sections (REQUIRE frontend-design-o):
 - Hero section
@@ -60,34 +60,14 @@ todos:
 
 ### How to Use:
 
-For each visual section, dispatch the builder with frontend-design-o:
+**Dispatch a subagent that will use frontend-design-o** (see Subagent Dispatch Instructions below).
 
-```
-Use Skill tool:
-skill: "frontend-design-o"
-args: "Implement the [SECTION NAME] section for this landing page.
+Do NOT use Skill tool directly in lp-building. Instead:
+1. Dispatch subagent via Task tool
+2. Subagent uses Skill tool for frontend-design-o
+3. Subagent reports back
 
-DESIGN DNA:
-[Include relevant design-dna.md content]
-
-COPY:
-[Include relevant copy-sections.md content]
-
-REQUIREMENTS:
-1. Create DISTINCTIVE, professional design
-2. Avoid generic AI aesthetics
-3. Follow design-dna colors/fonts/spacing exactly
-4. Use copy text exactly as provided
-5. Include all distinctive elements from design-dna
-6. NO emoji icons - use specified icon library
-7. Mobile-first responsive approach
-8. Think like a designer with 10+ years experience
-
-OUTPUT:
-- HTML for the section
-- CSS for the section
-- JS if needed for interactions"
-```
+This keeps lp-building as coordinator with fresh context for each section.
 
 ## Input Files
 
@@ -104,6 +84,8 @@ All output goes to `[project-folder]/`:
 - `[project-folder]/script.js`
 
 ## Building Pattern
+
+**CRITICAL: lp-building is a COORDINATOR. All work is dispatched to subagents.**
 
 For EACH task in the implementation plan:
 
@@ -123,25 +105,28 @@ For EACH task in the implementation plan:
        │               │
        ▼               ▼
 ┌──────────────┐ ┌──────────────────────┐
-│ YES: Use     │ │ NO: Use standard     │
-│ frontend-    │ │ builder subagent     │
-│ design-o     │ │                      │
-│ skill        │ │                      │
+│ YES:         │ │ NO:                  │
+│ Task tool →  │ │ Task tool →          │
+│ subagent →   │ │ subagent             │
+│ Skill tool   │ │ (standard builder)   │
+│ (frontend-   │ │                      │
+│ design-o)    │ │                      │
 └──────┬───────┘ └──────────┬───────────┘
        │                    │
        └────────┬───────────┘
                 │
                 ▼
 ┌─────────────────────────────────────┐
-│  3. Builder implements section      │
+│  3. Subagent implements section     │
 │     → Writes HTML                   │
 │     → Writes CSS                    │
 │     → Writes JS (if needed)         │
+│     → Reports back to lp-building   │
 └──────────────┬──────────────────────┘
                │
                ▼
 ┌─────────────────────────────────────┐
-│  4. Dispatch reviewer subagent      │
+│  4. Use superpowers:code-reviewer   │
 │     → Check design match            │
 │     → Check responsive              │
 │     → Check copy accuracy           │
@@ -159,71 +144,111 @@ For EACH task in the implementation plan:
 └─────────────────────────────────────┘
 ```
 
+**Structure:**
+```
+lp-building (coordinator)
+    │
+    ├── Task tool → Subagent A (visual section)
+    │       └── Skill tool → frontend-design-o
+    │
+    ├── Task tool → Subagent B (non-visual)
+    │
+    ├── Skill tool → code-reviewer
+    │
+    └── Task tool → Subagent C (next section)
+            └── Skill tool → frontend-design-o
+```
+
 ## Subagent Dispatch Instructions
+
+**CRITICAL: ALL sections are dispatched as subagents. This keeps lp-building as coordinator only.**
 
 ### For VISUAL Sections (MANDATORY frontend-design-o)
 
+Dispatch subagent that will use frontend-design-o skill:
+
 ```
-Use Skill tool:
-skill: "frontend-design-o"
-args: "Build the [SECTION] for landing page.
+Task tool:
+  subagent_type: "general-purpose"
+  description: "Build [SECTION NAME] with frontend-design-o"
+  prompt: |
+    ## Task: Build [SECTION NAME] for Landing Page
 
-## Context
-[Brief description of the landing page purpose]
+    You MUST use the frontend-design-o skill to create this section.
 
-## Design DNA
-[Full relevant section from design-dna.md]
+    ### Step 1: Use Skill Tool
+    ```
+    Use Skill tool:
+    skill: "frontend-design-o"
+    args: "Build the [SECTION] for landing page.
 
-## Copy Content
-[Exact copy from copy-sections.md]
+    ## Context
+    [Brief description of the landing page purpose]
 
-## Files
-- index.html (add/modify section)
-- style.css (add/modify styles)
-- script.js (if interactions needed)
+    ## Design DNA
+    [Full relevant section from design-dna.md]
 
-## Quality Requirements
-- Distinctive design, not generic
-- Follow design-dna exactly
-- NO emoji icons
-- Proper icon library icons
-- Include background shapes/patterns from design-dna
-- Include section dividers from design-dna
-- Mobile-first responsive"
+    ## Copy Content
+    [Exact copy from copy-sections.md]
+
+    ## Files
+    - [project-folder]/index.html (add/modify section)
+    - [project-folder]/style.css (add/modify styles)
+    - [project-folder]/script.js (if interactions needed)
+
+    ## Quality Requirements
+    - Distinctive design, not generic
+    - Follow design-dna exactly
+    - NO emoji icons
+    - Proper icon library icons
+    - Include background shapes/patterns from design-dna
+    - Include section dividers from design-dna
+    - Mobile-first responsive"
+    ```
+
+    ### Step 2: Verify Output
+    Confirm files were modified in [project-folder]/
+
+    ### Step 3: Report
+    Report what was implemented and any issues found.
 ```
 
 ### For Non-Visual Sections (Standard Builder)
 
-Use Task tool with `subagent_type: "general-purpose"`:
+Dispatch subagent with Task tool:
 
 ```
-Prompt:
-"""
-You are a landing page builder implementing Task [N] from the implementation plan.
+Task tool:
+  subagent_type: "general-purpose"
+  description: "Build [TASK NAME] for landing page"
+  prompt: |
+    ## Task: Implement [TASK NAME] for Landing Page
 
-## Your Task
-[Copy task details from implementation-plan.md]
+    You are implementing Task [N] from the implementation plan.
 
-## Design System Reference
-[Include relevant sections from design-dna.md]
+    ### Your Task
+    [Copy task details from implementation-plan.md]
 
-## Copy Reference
-[Include relevant sections from copy-sections.md]
+    ### Design System Reference
+    [Include relevant sections from design-dna.md]
 
-## Rules
-1. Use EXACT colors/fonts/spacing from design-dna.md
-2. Copy text EXACTLY from copy-sections.md
-3. Write clean, semantic HTML
-4. Use CSS custom properties defined in :root
-5. Mobile-first responsive approach
+    ### Copy Reference
+    [Include relevant sections from copy-sections.md]
 
-## Files to Modify
-- index.html
-- style.css
-- script.js (if needed)
+    ### Rules
+    1. Use EXACT colors/fonts/spacing from design-dna.md
+    2. Copy text EXACTLY from copy-sections.md
+    3. Write clean, semantic HTML
+    4. Use CSS custom properties defined in :root
+    5. Mobile-first responsive approach
 
-Complete this task and report what you implemented.
-"""
+    ### Files to Modify
+    - [project-folder]/index.html
+    - [project-folder]/style.css
+    - [project-folder]/script.js (if needed)
+
+    ### When Complete
+    Report what you implemented and confirm files were modified.
 ```
 
 ### Reviewer: Use superpowers:code-reviewer
