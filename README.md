@@ -20,18 +20,37 @@ Install plugins from this marketplace:
 /plugin install landing-pages@grigore-marketplace
 ```
 
+## Updating
+
+Updates are **not automatic** by default. After changes are pushed to GitHub:
+
+**Update marketplace listings:**
+```
+/plugin marketplace update grigore-marketplace
+```
+
+**Update installed plugins:**
+```
+/plugin update landing-pages@grigore-marketplace
+```
+
+**Enable auto-update (optional):**
+- Run `/plugin` → "Marketplaces" tab → toggle "Enable auto-update"
+- Or set environment variable: `FORCE_AUTOUPDATE_PLUGINS=true`
+
 ## Available Plugins
 
 ### landing-pages
 
-Professional landing page creation workflow with 6 automated steps:
+Professional landing page creation workflow with 7 automated steps:
 
+0. **Project Setup** - Create dedicated folder (user specifies name)
 1. **Brainstorming** - Gather requirements through guided questions
 2. **Design DNA** - Create a complete design system
 3. **Text Composing** - Write conversion-optimized copy
 4. **Planning** - Break down into implementation tasks
-5. **Building** - Implement the landing page
-6. **QA Review** - Quality assurance with scoring
+5. **Building** - Implement with subagent-driven development
+6. **QA Review** - Quality assurance with scoring (minimum 80 points)
 
 **Usage:**
 ```
@@ -39,8 +58,20 @@ Professional landing page creation workflow with 6 automated steps:
 ```
 
 **Output:**
-- `index.html`, `style.css`, `script.js`
-- `docs/` folder with design specs and QA reports
+```
+[project-name]/
+├── index.html
+├── style.css
+├── script.js
+└── docs/
+    ├── brainstorm-brief.md
+    ├── design-dna.md
+    ├── copy-sections.md
+    ├── implementation-plan.md
+    └── qa-report.md
+```
+
+See [landing-pages/README.md](landing-pages/README.md) for full documentation.
 
 ## Adding New Plugins
 
