@@ -8,8 +8,8 @@
     {
       "name": "landing-pages",
       "source": {
-        "source": "github",
-        "repo": "Masters-Production/landing-pages"
+        "source": "url",
+        "url": "https://github.com/Masters-Production/landing-pages.git"
       },
       "description": "Professional landing page creation workflow with brainstorming, design DNA, copywriting, and automated building",
       "version": "1.0.0",
