@@ -1,5 +1,4 @@
 {
-  "$schema": "https://anthropic.com/claude-code/plugin.schema.json",
   "name": "landing-pages",
   "description": "Professional landing page creation workflow with brainstorming, design DNA, copywriting, and automated building",
   "version": "1.0.0",
@@ -17,9 +16,10 @@
     "workflow",
     "automation"
   ],
-  "components": {
-    "commands": ["commands/"],
-    "agents": ["agents/"],
-    "skills": ["skills/"]
-  }
+  "commands": "./commands",
+  "agents": [
+    "./agents/lp-reviewer.md",
+    "./agents/lp-section-builder.md"
+  ],
+  "skills": "./skills"
 }
