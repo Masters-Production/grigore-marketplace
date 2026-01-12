@@ -1,0 +1,21 @@
+{
+  "name": "grigore-marketing-marketplace",
+  "description": "Marketplace for marketing and automation plugins",
+  "owner": {
+    "name": "Grigore Lipcanu"
+  },
+  "plugins": [
+    {
+      "name": "landing-pages",
+      "source": {
+        "source": "github",
+        "repo": "Masters-Production/landing-pages"
+      },
+      "description": "Professional landing page creation workflow with brainstorming, design DNA, copywriting, and automated building",
+      "version": "1.0.0",
+      "category": "development-workflows",
+      "tags": ["landing-page", "web-design", "copywriting", "automation"],
+      "keywords": ["landing-page", "design-system", "workflow"]
+    }
+  ]
+}
