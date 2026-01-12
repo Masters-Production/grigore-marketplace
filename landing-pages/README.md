@@ -4,14 +4,49 @@ Professional landing page creation workflow with brainstorming, design system, c
 
 ## Installation
 
-Add this plugin to your Claude Code configuration:
+### Step 1: Add the marketplace
 
-```bash
-claude mcp add-json grigore-marketplace '{
-  "type": "local",
-  "path": "/path/to/grigore-marketplace"
-}'
+**From GitHub:**
 ```
+/plugin marketplace add Masters-Production/grigore-marketplace
+```
+
+**From local path:**
+```
+/plugin marketplace add /path/to/grigore-marketplace
+```
+
+### Step 2: Install the plugin
+
+```
+/plugin install landing-pages@grigore-marketplace
+```
+
+**Installation scopes:**
+- Default (user): Available across all projects
+- `--scope project`: Shared with team via `.claude/settings.json`
+- `--scope local`: Project-specific, gitignored
+
+## Updating
+
+**Update marketplace listings:**
+```
+/plugin marketplace update grigore-marketplace
+```
+
+**Update the plugin:**
+```
+/plugin update landing-pages@grigore-marketplace
+```
+
+## Management Commands
+
+| Command | Purpose |
+|---------|---------|
+| `/plugin marketplace list` | View all marketplaces |
+| `/plugin` | Interactive plugin management UI |
+| `/plugin disable landing-pages@grigore-marketplace` | Disable without uninstalling |
+| `/plugin uninstall landing-pages@grigore-marketplace` | Remove plugin |
 
 ## Usage
 
