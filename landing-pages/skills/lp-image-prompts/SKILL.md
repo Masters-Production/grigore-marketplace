@@ -11,10 +11,10 @@ You are creating optimized image generation prompts for the landing page. Analyz
 
 1. **Read ALL docs first** - brainstorm-brief, design-dna, copy-sections, implementation-plan
 2. **Design-DNA drives style** - All prompts must reflect the established visual style
-3. **User confirms each section** - Use AskUserQuestion for visual needs per section
+3. **Visual concepts drive prompts** - Read visual-concepts.md for all image decisions
 4. **Optimized prompts** - Write prompts that produce consistent, high-quality images
 5. **Complete JSON structure** - Output `[project-folder]/docs/image-prompts.json` with all fields
-6. **No placeholder assumptions** - Ask user what images they actually want
+6. **No placeholder assumptions** - Use exact specifications from visual-concepts.md
 
 ## Input/Output Paths
 
@@ -284,7 +284,7 @@ Create `[project-folder]/docs/image-prompts.json`:
 Before completing, verify:
 - [ ] All docs were read (brainstorm, design-dna, copy-sections, implementation-plan)
 - [ ] Style context extracted from design-dna
-- [ ] User confirmed visual needs for each major section
+- [ ] All images from visual-concepts.md mapped to prompts
 - [ ] Prompts include specific color hex codes from design-dna
 - [ ] Prompts include mood/style keywords from design-dna
 - [ ] All prompts have negative_prompt to avoid artifacts
