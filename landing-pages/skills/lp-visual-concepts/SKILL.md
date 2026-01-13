@@ -176,3 +176,143 @@ Options:
 - label: "Clean/Minimal"
   description: "Focus pe CTA button, fundal gradient simplu"
 ```
+
+### Step 4: Document Visual Concepts
+
+After user confirms each section, document in `visual-concepts.md`.
+
+**Format for each section:**
+
+```markdown
+## [Section Name]
+
+### Concept vizual
+**Metaforă:** [Ce reprezintă ce - ex: "Racheta = creștere rapidă"]
+**Mesaj:** [Ce comunică vizual acest concept]
+
+### Compoziție
+- **Prim-plan:** [Element principal - poziție, unghi, mărime]
+- **Plan secundar:** [Elemente de suport]
+- **Fundal:** [Tip fundal - gradient, pattern, blur]
+- **Text layering:** [Cum interacționează textul cu elementele vizuale]
+- **Elemente decorative:** [Particule, forme, efecte în colțuri/margini]
+
+### Stil rendering
+- **Tip:** [3D realist / Ilustrație / Foto / Mixt]
+- **Materiale:** [Chrome, marmură, sticlă, etc.]
+- **Lighting:** [Studio, natural, dramatic, rim light]
+- **Efecte:** [Motion blur, bloom, reflecții, shadows]
+- **Culori:** [Referințe exacte din design-dna cu hex codes]
+
+### Imagini necesare
+1. `[id]` - [descriere] ([background type: transparent/keep])
+2. `[id]` - [descriere] ([background type])
+```
+
+**Complete visual-concepts.md Template:**
+
+```markdown
+# Visual Concepts for [Project Name]
+
+Generated: [timestamp]
+Design DNA Reference: [project-folder]/docs/design-dna.md
+
+---
+
+## Hero Section
+
+### Concept vizual
+**Metaforă:** [descriere]
+**Mesaj:** [descriere]
+
+### Compoziție
+- **Prim-plan:** [descriere]
+- **Plan secundar:** [descriere]
+- **Fundal:** [descriere]
+- **Text layering:** [descriere]
+- **Elemente decorative:** [descriere]
+
+### Stil rendering
+- **Tip:** [descriere]
+- **Materiale:** [descriere]
+- **Lighting:** [descriere]
+- **Efecte:** [descriere]
+- **Culori:** Primary (#hex), Secondary (#hex), Accent (#hex)
+
+### Imagini necesare
+1. `hero-main` - [descriere] (transparent)
+2. `hero-bg` - [descriere] (keep)
+3. `hero-particles` - [descriere] (transparent)
+
+---
+
+## Benefits Section
+
+### Concept vizual
+**Stil:** [3D isometric / Illustrated / etc.]
+**Consistență:** [Cum se leagă de hero]
+
+### Stil rendering
+- **Tip:** [descriere]
+- **Materiale:** [descriere]
+- **Culori:** [referințe hex]
+
+### Imagini necesare
+| ID | Benefit | Descriere |
+|----|---------|-----------|
+| `icon-benefit-1` | [benefit name] | [descriere vizuală] |
+| `icon-benefit-2` | [benefit name] | [descriere vizuală] |
+| `icon-benefit-3` | [benefit name] | [descriere vizuală] |
+
+---
+
+## Social Proof Section
+
+### Concept vizual
+**Stil:** [descriere]
+
+### Imagini necesare
+[lista sau "N/A - text only"]
+
+---
+
+## CTA Section
+
+### Concept vizual
+**Metaforă:** [descriere]
+**Legătură cu Hero:** [cum se leagă]
+
+### Compoziție
+[descriere]
+
+### Imagini necesare
+[lista]
+
+---
+
+## Decorațiuni Globale
+
+### Floating Elements
+| ID | Poziție | Descriere |
+|----|---------|-----------|
+| `deco-blob-1` | Hero corners | [descriere] |
+| `deco-particles` | Throughout | [descriere] |
+
+### Divisori secțiuni
+| ID | Între secțiuni | Stil |
+|----|----------------|------|
+| `divider-1` | Hero → Benefits | [wave/angle/etc.] |
+
+---
+
+## Composition Notes for Image Prompts
+
+**Key rendering terms to use:**
+- [lista de termeni specifici pentru acest proiect]
+
+**Avoid:**
+- [ce să evite în prompturi]
+
+**Consistency rules:**
+- [reguli pentru consistență vizuală]
+```
