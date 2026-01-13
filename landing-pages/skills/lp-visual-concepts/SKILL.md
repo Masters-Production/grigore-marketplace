@@ -77,3 +77,102 @@ For each major section, think:
 | "Security" | Lock icon | Shield deflecting attacks with energy |
 | "Productivity" | Checklist | Person flying above completed tasks |
 | "Leadership" | Crown | Chess pieces in strategic formation |
+
+### Step 3: Propose Visual Concepts Per Section
+
+**For each major section, propose 2-3 concepts using AskUserQuestion.**
+
+Think about:
+1. **Visual Metaphor** - What object/scene represents the message?
+2. **Composition** - How are elements arranged? What's in front/behind?
+3. **Rendering Style** - 3D realistic? Illustrated? Photographic?
+
+---
+
+**Hero Section Proposal:**
+
+```
+Use AskUserQuestion:
+Question: "Ce concept vizual pentru Hero section?"
+Header: "Hero Concept"
+Options:
+- label: "[Concept 1 Name]"
+  description: "Metaforă: [X reprezintă Y]. Compoziție: [descriere layering]. Stil: [3D/ilustrație/foto]"
+
+- label: "[Concept 2 Name]"
+  description: "Metaforă: [X reprezintă Y]. Compoziție: [descriere layering]. Stil: [3D/ilustrație/foto]"
+
+- label: "[Concept 3 Name]"
+  description: "Metaforă: [X reprezintă Y]. Compoziție: [descriere layering]. Stil: [3D/ilustrație/foto]"
+```
+
+**Example Hero Concepts (adapt to project):**
+
+| Concept | Metaphor | Composition | Style |
+|---------|----------|-------------|-------|
+| Rocket Launch | Growth/Speed | 3D rocket at 15° angle, exits frame bottom, text behind | Chrome metallic, motion blur, rim lighting |
+| Breaking Free | Liberation | Person breaking chains, fragments floating | Dramatic lighting, slow-motion freeze |
+| Chess Strategy | Leadership | Chess pieces on board, king prominent | Marble texture, reflective surface, depth blur |
+
+---
+
+**Benefits Section Proposal:**
+
+```
+Use AskUserQuestion:
+Question: "Ce stil vizual pentru secțiunea Benefits?"
+Header: "Benefits Style"
+Options:
+- label: "3D Isometric Icons"
+  description: "Iconuri 3D cu perspectivă isometrică, umbre soft, materiale lucioase"
+
+- label: "Illustrated Scenes"
+  description: "Mini-ilustrații pentru fiecare benefit, stil consistent cu hero"
+
+- label: "Abstract Symbols"
+  description: "Forme geometrice abstracte care simbolizează fiecare benefit"
+
+- label: "Photo-realistic Objects"
+  description: "Obiecte 3D foto-realiste relevante pentru fiecare benefit"
+```
+
+---
+
+**Social Proof Section Proposal:**
+
+```
+Use AskUserQuestion:
+Question: "Ce vizual pentru Social Proof?"
+Header: "Social Proof"
+Options:
+- label: "Decorative quotes"
+  description: "Ghilimele stilizate 3D, efecte de sticlă, floating"
+
+- label: "Avatar frames"
+  description: "Frame-uri decorative pentru avatare, stil consistent"
+
+- label: "Minimal/Text only"
+  description: "Focus pe text, fără elemente vizuale suplimentare"
+```
+
+---
+
+**CTA Section Proposal:**
+
+```
+Use AskUserQuestion:
+Question: "Ce concept pentru secțiunea CTA finală?"
+Header: "Final CTA"
+Options:
+- label: "Echo Hero"
+  description: "Reia elementele din hero într-o formă simplificată"
+
+- label: "Destination Visual"
+  description: "Arată 'destinația' - rezultatul după folosirea produsului"
+
+- label: "Urgency Element"
+  description: "Element vizual care creează urgență (timer stilizat, etc.)"
+
+- label: "Clean/Minimal"
+  description: "Focus pe CTA button, fundal gradient simplu"
+```
