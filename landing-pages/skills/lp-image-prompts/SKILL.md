@@ -1,6 +1,6 @@
 ---
 name: lp-image-prompts
-description: Step 5 of landing page creation - identify visual needs for each section and generate optimized image prompts based on design-dna style
+description: Step 6 of landing page creation - identify visual needs for each section and generate optimized image prompts based on design-dna style
 ---
 
 # Landing Page Image Prompts
@@ -343,7 +343,7 @@ After creating the artifact:
 1. Confirm image-prompts.json was created
 2. Verify JSON is valid (parseable)
 3. Count total images by priority: `[X] high, [Y] medium, [Z] low`
-4. Report to orchestrator: "Step 5 complete - Image prompts created"
+4. Report to orchestrator: "Step 6 complete - Image prompts created"
 5. Provide path: `[project-folder]/docs/image-prompts.json`
 6. Summary of images:
    - Hero visuals: [list]
