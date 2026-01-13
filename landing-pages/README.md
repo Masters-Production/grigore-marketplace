@@ -113,19 +113,27 @@ The workflow includes AI-powered image generation:
 
 ### Image Generation Setup
 
-Two options for AI image generation:
+At Step 0 (Project Setup), the plugin automatically checks for image generation configuration.
 
-**Option 1: MCP Recraft Server (Recommended)**
+**Option 1: Automatic Setup (Recommended)**
 
-Install the Recraft MCP server for best quality:
+When you run `/landing`, if no image generation is detected:
+1. Choose "Configurează Recraft MCP"
+2. Enter your API key (get one at https://recraft.ai/settings/api)
+3. Plugin creates `.mcp.json` in your project
+4. Restart Claude Code
+5. Run `/landing` again - configuration is detected automatically
 
-```bash
-# Via NPM in claude_desktop_config.json:
+**Option 2: Manual Configuration**
+
+Create `.mcp.json` in your project root:
+
+```json
 {
   "mcpServers": {
     "recraft": {
       "command": "npx",
-      "args": ["-y", "@anthropic-ai/mcp-recraft-server@latest"],
+      "args": ["-y", "@recraft-ai/mcp-recraft-server@latest"],
       "env": {
         "RECRAFT_API_KEY": "your-api-key"
       }
@@ -134,11 +142,9 @@ Install the Recraft MCP server for best quality:
 }
 ```
 
-Or download the .dxt file from [MCP Recraft Server Releases](https://github.com/recraft-ai/mcp-recraft-server/releases).
+Then restart Claude Code for the MCP server to activate.
 
-Get your API key at: https://recraft.ai/settings/api
-
-**Option 2: Environment Variable**
+**Option 3: Environment Variable**
 
 ```bash
 export RECRAFT_API_TOKEN=your-api-key
@@ -152,7 +158,7 @@ The plugin works without any image generation setup. It falls back to:
 1. Browser automation (if claude-in-chrome available)
 2. Placeholder images (last resort)
 
-See `config/.env.example` for more details.
+You can replace placeholder images manually after generation.
 
 ## Plugin Contents
 

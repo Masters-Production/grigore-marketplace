@@ -90,6 +90,15 @@ Step 10: finishing-a-development-branch → Complete
 
 ## Step 0: Project Setup (MANDATORY FIRST STEP)
 
+Step 0 has three parts:
+- **Part A**: Folder name & project structure
+- **Part B**: Image generation configuration check
+- **Part C**: TodoWrite initialization
+
+---
+
+### Part A: Folder Name & Structure
+
 **1. Ask user for folder name:**
 ```
 Use AskUserQuestion:
@@ -110,7 +119,128 @@ mkdir [project-folder]/assets
 mkdir [project-folder]/assets/images
 ```
 
-**3. Create TodoWrite with ALL steps:**
+**3. Confirm structure:**
+```
+[project-folder]/
+├── assets/
+│   └── images/
+└── docs/
+```
+
+---
+
+### Part B: Image Generation Check
+
+**CRITICAL: Check image generation configuration BEFORE proceeding.**
+
+This ensures the user knows upfront what image generation method is available.
+
+**1. Detect available methods (check in order):**
+
+```
+Detection order:
+1. MCP Recraft Server → Use ListMcpResourcesTool, look for "recraft" server
+2. Environment variable → Check if RECRAFT_API_TOKEN is set
+3. Local .mcp.json → Check if .mcp.json exists in cwd with recraft config
+```
+
+**Detection logic:**
+```
+a) Try ListMcpResourcesTool with server="recraft"
+   - If returns resources → MCP Recraft detected ✓
+   - If error/empty → continue checking
+
+b) Check environment:
+   - Bash: echo $RECRAFT_API_TOKEN
+   - If non-empty → ENV token detected ✓
+
+c) Check .mcp.json in cwd:
+   - Read .mcp.json if exists
+   - If contains "recraft" server → config exists (but may need restart)
+```
+
+**2. If method detected:**
+```
+Log to user: "✓ Image generation ready: [method name]"
+Continue to Part C.
+```
+
+**3. If NO method detected:**
+```
+Use AskUserQuestion:
+Question: "Nu am detectat nicio metodă de generare imagini. Cum vrei să procedăm?"
+Header: "Image Setup"
+Options:
+- label: "Configurează Recraft MCP (Recomandat)"
+  description: "Voi crea .mcp.json cu configurarea necesară. Necesită restart."
+- label: "Folosește placeholder images"
+  description: "Continuă fără imagini reale - le poți genera manual mai târziu"
+- label: "Am deja configurare externă"
+  description: "Am MCP sau env var setat în altă parte"
+```
+
+**4. Handle user choice:**
+
+**If "Configurează Recraft MCP":**
+```
+a) Ask for API key:
+   Use AskUserQuestion:
+   Question: "Introdu API key-ul Recraft (obține-l de la https://recraft.ai/settings/api)"
+   Header: "API Key"
+   Options:
+   - label: "Nu am încă un API key"
+     description: "Deschide https://recraft.ai/settings/api să obții unul"
+   (User types API key via "Other" option)
+
+b) If user doesn't have API key yet:
+   - Inform them to get one from https://recraft.ai/settings/api
+   - Wait for them to provide it
+
+c) Create .mcp.json in CURRENT WORKING DIRECTORY (cwd):
+   Write file ".mcp.json" with content:
+   {
+     "mcpServers": {
+       "recraft": {
+         "command": "npx",
+         "args": ["-y", "@recraft-ai/mcp-recraft-server@latest"],
+         "env": {
+           "RECRAFT_API_KEY": "[user-provided-key]"
+         }
+       }
+     }
+   }
+
+d) Inform user and STOP workflow:
+   "✓ Am creat .mcp.json cu configurarea Recraft MCP.
+
+   Pentru a activa serverul MCP:
+   1. Restartează Claude Code (Ctrl+C, apoi 'claude' din nou)
+   2. Navighează în același folder: cd [current-path]
+   3. Rulează /landing din nou
+
+   Configurarea va fi detectată automat la următorul start."
+
+e) STOP - Do not continue to Part C
+   User must restart Claude Code for MCP to activate.
+```
+
+**If "Folosește placeholder images":**
+```
+Log: "⚠ Vei primi placeholder images. Le poți înlocui manual după generare."
+Continue to Part C.
+```
+
+**If "Am deja configurare externă":**
+```
+Log: "OK, voi folosi configurarea existentă la Step 6."
+Continue to Part C.
+```
+
+---
+
+### Part C: Create TodoWrite
+
+**Create TodoWrite with ALL steps:**
 ```
 TodoWrite todos:
 - Step 0: Project Setup - COMPLETED
@@ -124,14 +254,6 @@ TodoWrite todos:
 - Step 8: Building - pending
 - Step 9: QA Review - pending
 - Step 10: Finish Development - pending
-```
-
-**4. Confirm structure:**
-```
-[project-folder]/
-├── assets/
-│   └── images/
-└── docs/
 ```
 
 **All subsequent skills will use `[project-folder]/` as the base path.**
