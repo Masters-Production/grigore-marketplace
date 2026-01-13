@@ -99,128 +99,85 @@ Map each section from implementation-plan.md to potential visual needs:
 | Final CTA | Background pattern, decorative elements |
 | Footer | Logo, social icons |
 
-### Step 4: Confirm Visual Needs with User
+### Step 4: Map Images from Visual Concepts
 
-**For Hero Section:**
-```
-Use AskUserQuestion:
-Question: "What visual element should the hero section have?"
-Header: "Hero Visual"
-Options:
-- label: "Abstract background"
-  description: "Gradient mesh, geometric patterns, or abstract shapes"
-- label: "Product illustration"
-  description: "Stylized illustration of the product/service"
-- label: "Hero image with person"
-  description: "Photo-realistic or illustrated person using product"
-- label: "3D elements"
-  description: "3D rendered objects or floating elements"
-- label: "No image needed"
-  description: "Hero will use CSS gradients/patterns only"
-```
+**DO NOT ask the user what images they want - this was already decided in visual-concepts.md**
 
-**For Benefits Section:**
+Read the "Imagini necesare" sections from visual-concepts.md and create a prompt for each listed image.
+
+For each image entry:
+1. Find its ID (e.g., `hero-main`, `icon-benefit-1`)
+2. Read its description and section
+3. Find the composition and rendering specs from that section
+4. Generate the technical prompt
+
+### Step 5: Generate Optimized Prompts from Visual Concepts
+
+**Transform visual-concepts.md specifications into technical prompts.**
+
+For each image in visual-concepts.md:
+
+1. **Read the concept specification:**
+   - Metaphor (what it represents)
+   - Composition (positioning, layering)
+   - Rendering style (materials, lighting, effects)
+
+2. **Build the prompt with technical terms:**
+
+**Prompt Structure:**
 ```
-Use AskUserQuestion:
-Question: "What style of icons for the benefits section?"
-Header: "Benefit Icons"
-Options:
-- label: "Flat icons"
-  description: "Simple, modern flat design icons"
-- label: "Outlined icons"
-  description: "Line-art style icons with consistent stroke"
-- label: "3D icons"
-  description: "Subtle 3D depth and shadows"
-- label: "Illustrated icons"
-  description: "Custom illustrated icons matching brand style"
-- label: "Skip icons"
-  description: "Use icon library instead (Lucide, Phosphor, etc.)"
+[Subject from metaphor], [specific positioning from composition],
+[material/texture from rendering], [lighting setup],
+[effects: blur, bloom, reflection], [color references with hex],
+[quality terms: high resolution, 8k, professional],
+[style: octane render, studio photography, digital illustration]
 ```
 
-**For Social Proof Section:**
+**Example Transformation:**
+
+Visual Concept Input:
 ```
-Use AskUserQuestion:
-Question: "What visuals for the social proof section?"
-Header: "Social Proof Visuals"
-Options:
-- label: "Avatar placeholders"
-  description: "Generate placeholder avatars for testimonials"
-- label: "Company logos"
-  description: "I'll provide real logos - skip generation"
-- label: "Decorative quotes"
-  description: "Stylized quotation mark graphics"
-- label: "Minimal/None"
-  description: "Text-only testimonials"
+Metaphor: Rocket = growth
+Composition: 3D rocket at 15° angle, exits frame bottom, text behind
+Rendering: Chrome metallic, rim lighting, motion blur on exhaust
+Colors: Primary (#1a2744), Accent (#ff6b6b)
 ```
 
-**For Decorative Elements:**
+Generated Prompt:
 ```
-Use AskUserQuestion:
-Question: "Do you want decorative stickers or floating elements?"
-Header: "Decorative Elements"
-Options:
-- label: "Floating shapes"
-  description: "Abstract geometric shapes scattered on page"
-- label: "Section dividers"
-  description: "Custom wave/angle dividers between sections"
-- label: "Background patterns"
-  description: "Subtle repeating patterns for sections"
-- label: "No decorations"
-  description: "Keep it clean and minimal"
+"3D rocket launching at 15 degree angle tilted right, chrome metallic body
+with subtle scratches and reflections, navy blue (#1a2744) primary color,
+coral (#ff6b6b) flames and exhaust, positioned lower third of frame
+exiting bottom edge, strong rim lighting from upper right, motion blur
+on exhaust particles, transparent background, octane render quality,
+studio lighting setup, 8k resolution, professional product photography style"
 ```
 
-### Step 5: Generate Optimized Prompts
+**Rendering Term Reference:**
 
-For each confirmed image, create an optimized prompt following this structure:
+| Visual Concept Term | Prompt Terms to Add |
+|---------------------|---------------------|
+| 3D realistic | octane render, 8k, photorealistic, studio lighting |
+| Chrome/metallic | chrome material, reflective surface, subtle scratches |
+| Marble | marble texture with veins, polished surface |
+| Glass | glass material, refraction, caustics, transparency |
+| Motion blur | motion blur, speed lines, dynamic movement |
+| Bloom effect | bloom, glow, light bleeding, soft highlights |
+| Rim lighting | rim light, backlight, edge lighting, silhouette glow |
+| Depth blur | depth of field, bokeh, background blur, tilt-shift |
+| Floating | levitating, zero gravity, suspended in air |
+| Isometric | isometric perspective, 30 degree angle, no perspective distortion |
 
-**Prompt Template:**
-```
-[Subject/Content], [Style descriptors from design-dna],
-[Color references], [Technical specifications],
-high quality, professional, [mood from design-dna]
-```
+**Composition Term Reference:**
 
-**Negative Prompt Template:**
-```
-text, watermark, logo, signature, blurry, low quality,
-distorted, deformed, ugly, duplicate, out of frame
-```
-
-**Example Prompts by Type:**
-
-**Hero Background:**
-```
-"prompt": "Abstract gradient mesh background with flowing organic shapes,
-deep navy blue (#1a2744) transitioning to soft teal (#4fd1c5) accents,
-modern minimalist style, clean professional aesthetic,
-subtle noise texture, high resolution, 4k quality"
-```
-
-**Benefit Icon:**
-```
-"prompt": "Simple flat icon representing speed and efficiency,
-lightning bolt with circular motion lines,
-coral accent color (#ff6b6b) on transparent background,
-modern minimalist style, consistent 4px stroke weight,
-centered composition, clean edges"
-```
-
-**Illustration:**
-```
-"prompt": "Isometric illustration of a person working on laptop,
-floating productivity elements around them,
-color palette: navy (#1a2744), teal (#4fd1c5), coral (#ff6b6b),
-modern flat illustration style, subtle shadows,
-professional business context, friendly approachable mood"
-```
-
-**Sticker/Decoration:**
-```
-"prompt": "Abstract geometric blob shape, organic flowing form,
-soft gradient from purple (#7c3aed) to pink (#ec4899),
-glass morphism effect, subtle blur,
-transparent PNG, floating 3D appearance"
-```
+| Visual Concept Term | Prompt Terms to Add |
+|---------------------|---------------------|
+| Exits frame | cropped at edge, extends beyond frame, partial view |
+| Text behind | layered composition, negative space for text |
+| Central | centered composition, symmetrical |
+| Lower third | positioned in lower third, rule of thirds |
+| Tilted X° | rotated X degrees, angled, dynamic pose |
+| Foreground/background | depth layers, foreground element, background separation |
 
 ### Step 6: Determine Sizes and Formats
 
