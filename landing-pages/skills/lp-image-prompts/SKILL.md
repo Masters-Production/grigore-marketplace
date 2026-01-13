@@ -314,13 +314,28 @@ Before completing, verify:
 
 ### From Previous Steps
 - `[project-folder]/docs/brainstorm-brief.md` - Project context
-- `[project-folder]/docs/design-dna.md` - Visual style guide
+- `[project-folder]/docs/design-dna.md` - Colors, mood, style keywords
 - `[project-folder]/docs/copy-sections.md` - Content context
 - `[project-folder]/docs/implementation-plan.md` - Section structure
+- `[project-folder]/docs/visual-concepts.md` - **PRIMARY** - Concepts, compositions, rendering specs
 
 ### To Next Steps
 - `[project-folder]/docs/image-prompts.json` - Input for lp-image-generation
-- Style context passed to ensure visual consistency
+- Prompts contain technical rendering terms from visual-concepts transformation
+
+### Dependency Chain
+```
+visual-concepts.md (concepts)
+    → image-prompts.json (technical prompts)
+        → image-generation (actual images)
+            → image-integration (into implementation-plan)
+```
+
+### What Changed from Previous Workflow
+- **Before:** image-prompts asked user what images they wanted
+- **After:** image-prompts reads visual-concepts.md which already has decisions
+- **Before:** Prompts were basic ("blue gradient background")
+- **After:** Prompts include technical rendering terms ("octane render, rim lighting, 8k")
 
 ## Completion
 
