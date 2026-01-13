@@ -26,6 +26,7 @@ Read and understand:
 - `[project-folder]/docs/design-dna.md` - Visual style, colors, mood
 - `[project-folder]/docs/copy-sections.md` - Text content for context
 - `[project-folder]/docs/implementation-plan.md` - Sections and structure
+- `[project-folder]/docs/visual-concepts.md` - **PRIMARY INPUT** - Visual concepts, metaphors, compositions
 
 ### Output Files
 - `[project-folder]/docs/image-prompts.json` - Complete image generation specifications
@@ -37,15 +38,37 @@ Read and understand:
 Read all docs from `[project-folder]/docs/`:
 
 ```
-1. brainstorm-brief.md - Understand audience, product, tone
+1. visual-concepts.md - **PRIMARY** - Contains:
+   - Visual metaphors per section
+   - Composition specifications (layering, positioning)
+   - Rendering style (materials, lighting, effects)
+   - List of images needed with IDs
+
 2. design-dna.md - Extract:
-   - Color palette (primary, secondary, accent)
-   - Mood/atmosphere (modern, playful, professional, etc.)
-   - Visual style (minimalist, bold, organic, etc.)
-   - Any specified visual elements
-3. copy-sections.md - Understand content for each section
-4. implementation-plan.md - Map sections that need visuals
+   - Color palette (exact hex codes)
+   - Mood/atmosphere
+   - Visual style keywords
+
+3. brainstorm-brief.md - Context for:
+   - Target audience
+   - Tone and messaging
+
+4. copy-sections.md - Reference for:
+   - Headlines that need visual support
+   - Section order
+
+5. implementation-plan.md - Map:
+   - Section structure
+   - Image placement needs
 ```
+
+**IMPORTANT:** `visual-concepts.md` is now the primary input. It already contains:
+- What images are needed
+- What metaphors to use
+- How to compose each image
+- What rendering style to apply
+
+Your job is to transform these concepts into optimized generation prompts.
 
 ### Step 2: Extract Style Context
 
