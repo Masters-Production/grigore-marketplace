@@ -15,18 +15,18 @@ You are orchestrating the creation of a professional landing page. This is a mul
 4. **Quality gates matter** - If QA fails (<80 score), iterate
 5. **Use TodoWrite** - Create todos for ALL steps at the beginning
 6. **All files in project folder** - Everything goes in `[project-folder]/`
-7. **Use subagents for complex steps** - Steps 2-10 MUST dispatch subagents
+7. **Use subagents for complex steps** - Steps 2-11 MUST dispatch subagents
 
 ## Subagent Dispatch Pattern
 
-**CRITICAL:** Complex steps (2-10) MUST be executed in separate subagents, NOT in the orchestrator's context.
+**CRITICAL:** Complex steps (2-11) MUST be executed in separate subagents, NOT in the orchestrator's context.
 
 | Steps | Execution | Reason |
 |-------|-----------|--------|
 | 0, 1 | Direct | Simple setup and user questions |
-| 2-10 | Subagent | Complex work, fresh context needed |
+| 2-11 | Subagent | Complex work, fresh context needed |
 
-**Why subagents for Steps 2-10:**
+**Why subagents for Steps 2-11:**
 - Fresh context for each step
 - Orchestrator context not consumed
 - Each skill can be complex without limitations
@@ -251,12 +251,13 @@ TodoWrite todos:
 - Step 2: Design DNA - pending
 - Step 3: Text Composing - pending
 - Step 4: Planning - pending
-- Step 5: Image Prompts - pending
-- Step 6: Image Generation - pending
-- Step 7: Image Integration - pending
-- Step 8: Building - pending
-- Step 9: QA Review - pending
-- Step 10: Finish Development - pending
+- Step 5: Visual Concepts - pending
+- Step 6: Image Prompts - pending
+- Step 7: Image Generation - pending
+- Step 8: Image Integration - pending
+- Step 9: Building - pending
+- Step 10: QA Review - pending
+- Step 11: Finish Development - pending
 ```
 
 **All subsequent skills will use `[project-folder]/` as the base path.**
@@ -280,7 +281,7 @@ TodoWrite todos:
 
 ---
 
-### Steps 2-10: Subagent Dispatch (Task Tool)
+### Steps 2-11: Subagent Dispatch (Task Tool)
 
 **Step 2: Design DNA** _(Dispatch subagent)_
 
@@ -373,16 +374,52 @@ Task tool:
 
 ---
 
-**Step 5: Image Prompts** _(Dispatch subagent)_
+**Step 5: Visual Concepts** _(Dispatch subagent)_
 
 1. Mark TodoWrite: Step 5 = in_progress
 2. Dispatch subagent:
 ```
 Task tool:
   subagent_type: "general-purpose"
+  description: "Execute visual-concepts step"
+  prompt: |
+    ## Landing Page Workflow - Step 5: Visual Concepts
+
+    SKILL TO USE: landing-pages:lp-visual-concepts
+    PROJECT FOLDER: [project-folder]
+
+    Input: Read ALL docs in [project-folder]/docs/:
+    - brainstorm-brief.md
+    - design-dna.md
+    - copy-sections.md
+    - implementation-plan.md
+
+    Follow the skill instructions to create visual concepts.
+    Think like a creative director - propose metaphors, compositions, rendering styles.
+    Use AskUserQuestion to confirm concept for each major section.
+
+    Output: [project-folder]/docs/visual-concepts.md
+
+    When complete, confirm artifact was created with:
+    - Hero concept chosen
+    - Benefits style chosen
+    - Total images needed
+```
+3. Verify artifact exists: `[project-folder]/docs/visual-concepts.md`
+4. Mark TodoWrite: Step 5 = completed
+
+---
+
+**Step 6: Image Prompts** _(Dispatch subagent)_
+
+1. Mark TodoWrite: Step 6 = in_progress
+2. Dispatch subagent:
+```
+Task tool:
+  subagent_type: "general-purpose"
   description: "Execute image prompts step"
   prompt: |
-    ## Landing Page Workflow - Step 5: Image Prompts
+    ## Landing Page Workflow - Step 6: Image Prompts
 
     SKILL TO USE: landing-pages:lp-image-prompts
     PROJECT FOLDER: [project-folder]
@@ -392,6 +429,7 @@ Task tool:
     - design-dna.md
     - copy-sections.md
     - implementation-plan.md
+    - visual-concepts.md
 
     Follow the skill instructions to identify visual needs and create prompts.
     Use AskUserQuestion to confirm image requirements with user.
@@ -401,20 +439,20 @@ Task tool:
     When complete, confirm artifact was created with image count.
 ```
 3. Verify artifact exists: `[project-folder]/docs/image-prompts.json`
-4. Mark TodoWrite: Step 5 = completed
+4. Mark TodoWrite: Step 6 = completed
 
 ---
 
-**Step 6: Image Generation** _(Dispatch subagent)_
+**Step 7: Image Generation** _(Dispatch subagent)_
 
-1. Mark TodoWrite: Step 6 = in_progress
+1. Mark TodoWrite: Step 7 = in_progress
 2. Dispatch subagent:
 ```
 Task tool:
   subagent_type: "general-purpose"
   description: "Execute image generation step"
   prompt: |
-    ## Landing Page Workflow - Step 6: Image Generation
+    ## Landing Page Workflow - Step 7: Image Generation
 
     SKILL TO USE: landing-pages:lp-image-generation
     PROJECT FOLDER: [project-folder]
@@ -429,20 +467,20 @@ Task tool:
     When complete, confirm number of images generated.
 ```
 3. Verify images exist in: `[project-folder]/assets/images/`
-4. Mark TodoWrite: Step 6 = completed
+4. Mark TodoWrite: Step 7 = completed
 
 ---
 
-**Step 7: Image Integration** _(Dispatch subagent)_
+**Step 8: Image Integration** _(Dispatch subagent)_
 
-1. Mark TodoWrite: Step 7 = in_progress
+1. Mark TodoWrite: Step 8 = in_progress
 2. Dispatch subagent:
 ```
 Task tool:
   subagent_type: "general-purpose"
   description: "Execute image integration step"
   prompt: |
-    ## Landing Page Workflow - Step 7: Image Integration
+    ## Landing Page Workflow - Step 8: Image Integration
 
     SKILL TO USE: landing-pages:lp-image-integration
     PROJECT FOLDER: [project-folder]
@@ -460,20 +498,20 @@ Task tool:
     When complete, confirm integration summary.
 ```
 3. Verify: `[project-folder]/docs/implementation-plan.md` has image references
-4. Mark TodoWrite: Step 7 = completed
+4. Mark TodoWrite: Step 8 = completed
 
 ---
 
-**Step 8: Building** _(Dispatch subagent - most complex)_
+**Step 9: Building** _(Dispatch subagent - most complex)_
 
-1. Mark TodoWrite: Step 8 = in_progress
+1. Mark TodoWrite: Step 9 = in_progress
 2. Dispatch subagent:
 ```
 Task tool:
   subagent_type: "general-purpose"
   description: "Execute building step"
   prompt: |
-    ## Landing Page Workflow - Step 8: Building
+    ## Landing Page Workflow - Step 9: Building
 
     SKILL TO USE: landing-pages:lp-building
     PROJECT FOLDER: [project-folder]
@@ -494,20 +532,20 @@ Task tool:
     When complete, confirm all three files exist.
 ```
 3. Verify all files exist: `index.html`, `style.css`, `script.js`
-4. Mark TodoWrite: Step 8 = completed
+4. Mark TodoWrite: Step 9 = completed
 
 ---
 
-**Step 9: QA Review** _(Dispatch subagent)_
+**Step 10: QA Review** _(Dispatch subagent)_
 
-1. Mark TodoWrite: Step 9 = in_progress
+1. Mark TodoWrite: Step 10 = in_progress
 2. Dispatch subagent:
 ```
 Task tool:
   subagent_type: "general-purpose"
   description: "Execute QA review step"
   prompt: |
-    ## Landing Page Workflow - Step 9: QA Review
+    ## Landing Page Workflow - Step 10: QA Review
 
     SKILL TO USE: landing-pages:lp-qa-review
     PROJECT FOLDER: [project-folder]
@@ -527,22 +565,22 @@ Task tool:
 4. If score < 80:
    - Identify critical issues from report
    - Dispatch subagent to fix issues using lp-building
-   - Re-run Step 9 (dispatch QA subagent again)
+   - Re-run Step 10 (dispatch QA subagent again)
    - Repeat until score >= 80
-5. Mark TodoWrite: Step 9 = completed
+5. Mark TodoWrite: Step 10 = completed
 
 ---
 
-**Step 10: Finish Development** _(Dispatch subagent)_
+**Step 11: Finish Development** _(Dispatch subagent)_
 
-1. Mark TodoWrite: Step 10 = in_progress
+1. Mark TodoWrite: Step 11 = in_progress
 2. Dispatch subagent:
 ```
 Task tool:
   subagent_type: "general-purpose"
   description: "Execute finish development step"
   prompt: |
-    ## Landing Page Workflow - Step 10: Finish Development
+    ## Landing Page Workflow - Step 11: Finish Development
 
     SKILL TO USE: superpowers:finishing-a-development-branch
     PROJECT FOLDER: [project-folder]
@@ -550,7 +588,7 @@ Task tool:
     QA has passed. Complete the development cycle.
     Follow the skill instructions for proper completion.
 ```
-3. Mark TodoWrite: Step 10 = completed
+3. Mark TodoWrite: Step 11 = completed
 
 ## Progress Tracking
 
@@ -566,12 +604,13 @@ Use TodoWrite to track progress. After each step, update status:
 | 2. Design DNA | ✅ Complete | [project-folder]/docs/design-dna.md |
 | 3. Text Composing | 🔄 In Progress | [project-folder]/docs/copy-sections.md |
 | 4. Planning | ⏳ Pending | [project-folder]/docs/implementation-plan.md |
-| 5. Image Prompts | ⏳ Pending | [project-folder]/docs/image-prompts.json |
-| 6. Image Generation | ⏳ Pending | [project-folder]/assets/images/*.webp |
-| 7. Image Integration | ⏳ Pending | [project-folder]/docs/implementation-plan.md (updated) |
-| 8. Building | ⏳ Pending | [project-folder]/index.html, style.css, script.js |
-| 9. QA Review | ⏳ Pending | [project-folder]/docs/qa-report.md |
-| 10. Finish | ⏳ Pending | Complete development |
+| 5. Visual Concepts | ⏳ Pending | [project-folder]/docs/visual-concepts.md |
+| 6. Image Prompts | ⏳ Pending | [project-folder]/docs/image-prompts.json |
+| 7. Image Generation | ⏳ Pending | [project-folder]/assets/images/*.webp |
+| 8. Image Integration | ⏳ Pending | [project-folder]/docs/implementation-plan.md (updated) |
+| 9. Building | ⏳ Pending | [project-folder]/index.html, style.css, script.js |
+| 10. QA Review | ⏳ Pending | [project-folder]/docs/qa-report.md |
+| 11. Finish | ⏳ Pending | Complete development |
 ```
 
 ## Completion
@@ -597,6 +636,7 @@ When QA passes (score >= 80), run `superpowers:finishing-a-development-branch`, 
 - `[project-folder]/docs/design-dna.md`
 - `[project-folder]/docs/copy-sections.md`
 - `[project-folder]/docs/implementation-plan.md`
+- `[project-folder]/docs/visual-concepts.md`
 - `[project-folder]/docs/image-prompts.json`
 - `[project-folder]/docs/qa-report.md`
 
