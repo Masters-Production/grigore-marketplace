@@ -29,3 +29,51 @@ Read and understand:
 
 ### Output Files
 - `[project-folder]/docs/visual-concepts.md` - Complete visual concept specifications
+
+## Visual Concept Generation Process
+
+### Step 1: Read All Documentation
+
+Read all docs from `[project-folder]/docs/`:
+
+```
+1. brainstorm-brief.md - Understand:
+   - Target audience (who are we designing for?)
+   - Product/service (what visual metaphors fit?)
+   - Tone (playful, professional, bold, minimal?)
+
+2. design-dna.md - Extract:
+   - Color palette (exact hex codes to reference)
+   - Mood/atmosphere (modern, playful, professional)
+   - Visual style (minimalist, bold, organic)
+
+3. copy-sections.md - Analyze:
+   - Headlines (what visual can amplify this message?)
+   - Key benefits (what metaphors represent these?)
+   - Emotional triggers (what imagery evokes this?)
+
+4. implementation-plan.md - Map sections:
+   - Which sections need strong visuals?
+   - What's the visual hierarchy?
+```
+
+### Step 2: Analyze Visual Opportunities
+
+For each major section, think:
+
+| Question | Purpose |
+|----------|---------|
+| What's the core message? | Find the metaphor |
+| What emotion should it evoke? | Define the mood |
+| How should elements be arranged? | Plan composition |
+| What makes it memorable? | Add unique touches |
+
+**Visual Metaphor Examples:**
+
+| Message | Weak Visual | Strong Visual |
+|---------|-------------|---------------|
+| "Save time" | Clock icon | Person breaking free from clock chains |
+| "Grow your business" | Arrow up | Rocket launching through clouds |
+| "Security" | Lock icon | Shield deflecting attacks with energy |
+| "Productivity" | Checklist | Person flying above completed tasks |
+| "Leadership" | Crown | Chess pieces in strategic formation |
