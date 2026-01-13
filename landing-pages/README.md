@@ -111,6 +111,49 @@ The workflow includes AI-powered image generation:
 - **Optimized Output** - All images saved as WebP for fast loading
 - **Automatic Integration** - Generated images referenced in implementation plan
 
+### Image Generation Setup
+
+Two options for AI image generation:
+
+**Option 1: MCP Recraft Server (Recommended)**
+
+Install the Recraft MCP server for best quality:
+
+```bash
+# Via NPM in claude_desktop_config.json:
+{
+  "mcpServers": {
+    "recraft": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-recraft-server@latest"],
+      "env": {
+        "RECRAFT_API_KEY": "your-api-key"
+      }
+    }
+  }
+}
+```
+
+Or download the .dxt file from [MCP Recraft Server Releases](https://github.com/recraft-ai/mcp-recraft-server/releases).
+
+Get your API key at: https://recraft.ai/settings/api
+
+**Option 2: Environment Variable**
+
+```bash
+export RECRAFT_API_TOKEN=your-api-key
+```
+
+The skill will use Bash + curl to make API calls directly.
+
+**No Configuration Required**
+
+The plugin works without any image generation setup. It falls back to:
+1. Browser automation (if claude-in-chrome available)
+2. Placeholder images (last resort)
+
+See `config/.env.example` for more details.
+
 ## Plugin Contents
 
 ### Skills

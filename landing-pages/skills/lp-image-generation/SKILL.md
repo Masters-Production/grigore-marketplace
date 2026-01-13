@@ -34,17 +34,27 @@ All files are in the project folder provided by the orchestrator.
 ### Method Priority
 
 ```
-1. MCP Tool (Recommended)
-   - Check if image generation MCP tool is available
-   - Most reliable and integrated option
+1. MCP Recraft Server (Recommended)
+   - Check if `generate_image` tool from recraft MCP server is available
+   - Best quality, supports vectors, icons, illustrations
+   - Install: https://github.com/recraft-ai/mcp-recraft-server
 
-2. API Direct
-   - Use configured API service (OpenAI DALL-E, Stability AI, etc.)
-   - Requires API credentials in environment
+2. Bash + curl (Recraft API)
+   - If RECRAFT_API_TOKEN environment variable exists
+   - Direct API calls via curl command
+   - Same quality as MCP, just different execution method
 
-3. Browser Automation
+3. Other MCP Tools
+   - Check for any other image generation MCP tools
+   - Generic fallback for MCP-based generation
+
+4. Browser Automation
    - Use claude-in-chrome to interact with web-based generators
    - Fallback option when others unavailable
+
+5. Placeholder Images
+   - Create colored placeholder with text overlay
+   - Last resort when no generation method works
 ```
 
 ### Method Detection
@@ -52,22 +62,29 @@ All files are in the project folder provided by the orchestrator.
 At the start of execution, detect available methods:
 
 ```
-Step 1: Check for MCP image generation tools
-  - List available MCP tools
-  - Look for image/generation capabilities
-  - If found: Use MCP method
+Step 1: Check for MCP Recraft Server
+  - Use ListMcpResourcesTool to check for "recraft" server
+  - Look for `generate_image` tool
+  - If found: Use MCP Recraft method
+  - Log: "Found MCP Recraft Server - using generate_image tool"
 
-Step 2: If no MCP, check for API configuration
-  - Check environment for API keys (OPENAI_API_KEY, STABILITY_API_KEY, etc.)
-  - If found: Use API method
+Step 2: Check for RECRAFT_API_TOKEN environment variable
+  - Run: echo $RECRAFT_API_TOKEN (Bash)
+  - If non-empty: Use Bash + curl method
+  - Log: "Found RECRAFT_API_TOKEN - using curl API method"
 
-Step 3: If no API, check for browser automation
-  - Check if claude-in-chrome is available
+Step 3: Check for other MCP image tools
+  - List all MCP tools
+  - Look for any image/generation capabilities
+  - If found: Use generic MCP method
+
+Step 4: Check for browser automation
+  - Check if claude-in-chrome tools are available
   - If found: Use browser method
 
-Step 4: If nothing available
+Step 5: If nothing available
   - Report to user: "No image generation method available"
-  - Ask user how to proceed
+  - Ask user how to proceed (see Troubleshooting section)
 ```
 
 ## Processing Flow
@@ -170,9 +187,103 @@ Expected format of `[project-folder]/docs/image-prompts.json`:
 
 ## Generation Method Details
 
-### Option 1: MCP Tool (Recommended)
+### Recraft Style Mapping
 
-If an MCP image generation tool is available:
+Map `image-prompts.json` type to Recraft style:
+
+| image type | Recraft style | Notes |
+|------------|---------------|-------|
+| hero | digital_illustration | Large backgrounds, banners |
+| icon | icon | Simple icons, symbols |
+| illustration | digital_illustration | Complex illustrations |
+| sticker | digital_illustration | Fun, playful elements |
+| decoration | digital_illustration | Abstract shapes, patterns |
+
+### Option 1: MCP Recraft Server (Recommended)
+
+If `generate_image` tool from recraft MCP server is available:
+
+```
+For each image:
+  1. Map type to Recraft style (see table above)
+  2. Parse size into width/height
+  3. Call MCP tool:
+
+     mcp__recraft__generate_image:
+       prompt: image.prompt
+       style: [mapped style from table]
+       size: "[width]x[height]"
+       model: "recraftv3"
+
+  4. Result returns image URL
+  5. Download image from URL using curl:
+     curl -s "[IMAGE_URL]" -o "[project-folder]/[output_path]"
+
+  6. If image.background == "transparent":
+     mcp__recraft__remove_background:
+       file: "[output_path]"
+
+  7. If image.format == "svg":
+     mcp__recraft__vectorize_image:
+       file: "[output_path]"
+```
+
+**Available MCP Recraft Tools:**
+- `generate_image` - Generate image from prompt
+- `remove_background` - Remove background (for transparent)
+- `vectorize_image` - Convert to SVG vector
+- `crisp_upscale` - Upscale with detail preservation
+- `creative_upscale` - Upscale with creative enhancement
+
+### Option 2: Bash + curl (Recraft API Direct)
+
+If MCP not available but `RECRAFT_API_TOKEN` environment variable exists:
+
+```bash
+# For each image, agent executes:
+
+# 1. Parse dimensions from size field
+WIDTH=$(echo "[size]" | cut -d'x' -f1)
+HEIGHT=$(echo "[size]" | cut -d'x' -f2)
+
+# 2. Generate image via API
+curl -s -X POST "https://external.api.recraft.ai/v1/images/generations" \
+  -H "Authorization: Bearer $RECRAFT_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "[PROMPT from image-prompts.json]",
+    "style": "[MAPPED_STYLE]",
+    "size": {"width": '$WIDTH', "height": '$HEIGHT'},
+    "model": "recraftv3",
+    "response_format": "url"
+  }' > /tmp/recraft_response.json
+
+# 3. Extract URL and download
+IMAGE_URL=$(cat /tmp/recraft_response.json | grep -o '"url":"[^"]*"' | head -1 | cut -d'"' -f4)
+curl -s "$IMAGE_URL" -o "[project-folder]/[output_path]"
+
+# 4. If background == "transparent", call remove_background API
+curl -s -X POST "https://external.api.recraft.ai/v1/images/removeBackground" \
+  -H "Authorization: Bearer $RECRAFT_API_TOKEN" \
+  -F "file=@[output_path]" \
+  -o "[output_path]"
+```
+
+**Recraft API Reference:**
+
+| Field | Value |
+|-------|-------|
+| Base URL | `https://external.api.recraft.ai/v1` |
+| Auth Header | `Authorization: Bearer RECRAFT_API_TOKEN` |
+| Generate Endpoint | `POST /images/generations` |
+| Remove BG Endpoint | `POST /images/removeBackground` |
+| Vectorize Endpoint | `POST /images/vectorize` |
+| Models | `recraftv3` (recommended), `recraft20b` |
+| Styles | `digital_illustration`, `icon`, `realistic_image` |
+
+### Option 3: Other MCP Tools
+
+If other MCP image generation tools are available (not Recraft):
 
 ```
 For each image:
@@ -186,33 +297,12 @@ For each image:
   4. Process background if image.background != "keep"
 ```
 
-### Option 2: API Direct
+### Option 4: Browser Automation
 
-If using direct API calls:
-
-```
-Supported APIs:
-- OpenAI DALL-E 3
-- Stability AI
-- Replicate
-- Custom API endpoint
-
-For each image:
-  1. Construct API request
-  2. Send generation request
-  3. Download result
-  4. Convert to target format if needed
-  5. Save to output_path
-  6. Process background if needed
-```
-
-### Option 3: Browser Automation
-
-If using claude-in-chrome:
+If using claude-in-chrome (fallback when no API available):
 
 ```
 Supported services:
-- Midjourney (via Discord)
 - Leonardo.ai
 - Ideogram
 - Other web-based generators
@@ -225,6 +315,19 @@ For each image:
   5. Download result
   6. Save to output_path
   7. Process background if needed
+```
+
+### Option 5: Placeholder Images
+
+Last resort when no generation method works:
+
+```
+For each image:
+  1. Create colored rectangle matching size
+  2. Use primary color from style_context
+  3. Add text overlay with image.id
+  4. Save as placeholder
+  5. Mark in report as "PLACEHOLDER - needs replacement"
 ```
 
 ## Background Processing
