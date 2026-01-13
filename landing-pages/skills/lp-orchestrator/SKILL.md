@@ -55,12 +55,13 @@ Task tool:
 | 2 | `landing-pages:lp-design-dna` | **Subagent** |
 | 3 | `landing-pages:lp-text-composing` | **Subagent** |
 | 4 | `landing-pages:lp-planning` | **Subagent** |
-| 5 | `landing-pages:lp-image-prompts` | **Subagent** |
-| 6 | `landing-pages:lp-image-generation` | **Subagent** |
-| 7 | `landing-pages:lp-image-integration` | **Subagent** |
-| 8 | `landing-pages:lp-building` | **Subagent** (nested subagents inside) |
-| 9 | `landing-pages:lp-qa-review` | **Subagent** |
-| 10 | `superpowers:finishing-a-development-branch` | **Subagent** |
+| 5 | `landing-pages:lp-visual-concepts` | **Subagent** |
+| 6 | `landing-pages:lp-image-prompts` | **Subagent** |
+| 7 | `landing-pages:lp-image-generation` | **Subagent** |
+| 8 | `landing-pages:lp-image-integration` | **Subagent** |
+| 9 | `landing-pages:lp-building` | **Subagent** (nested subagents inside) |
+| 10 | `landing-pages:lp-qa-review` | **Subagent** |
+| 11 | `superpowers:finishing-a-development-branch` | **Subagent** |
 
 ## Workflow Sequence
 
@@ -75,17 +76,19 @@ Step 3: lp-text-composing → [project-folder]/docs/copy-sections.md
     ↓
 Step 4: lp-planning → [project-folder]/docs/implementation-plan.md
     ↓
-Step 5: lp-image-prompts → [project-folder]/docs/image-prompts.json
+Step 5: lp-visual-concepts → [project-folder]/docs/visual-concepts.md
     ↓
-Step 6: lp-image-generation → [project-folder]/assets/images/*.webp
+Step 6: lp-image-prompts → [project-folder]/docs/image-prompts.json
     ↓
-Step 7: lp-image-integration → [project-folder]/docs/implementation-plan.md (updated with image references)
+Step 7: lp-image-generation → [project-folder]/assets/images/*.webp
     ↓
-Step 8: lp-building → [project-folder]/index.html, style.css, script.js
+Step 8: lp-image-integration → [project-folder]/docs/implementation-plan.md (updated)
     ↓
-Step 9: lp-qa-review → [project-folder]/docs/qa-report.md (score >= 80)
+Step 9: lp-building → [project-folder]/index.html, style.css, script.js
     ↓
-Step 10: finishing-a-development-branch → Complete
+Step 10: lp-qa-review → [project-folder]/docs/qa-report.md (score >= 80)
+    ↓
+Step 11: finishing-a-development-branch → Complete
 ```
 
 ## Step 0: Project Setup (MANDATORY FIRST STEP)
