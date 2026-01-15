@@ -1,0 +1,11 @@
+{
+  "name": "presentation",
+  "description": "Professional sales presentation creation workflow for webinars, marathons, and workshops that sell online courses. Uses embedded Hristosenko methodology for high-converting presentations.",
+  "version": "1.0.0",
+  "commands": "./commands",
+  "agents": [
+    "./agents/pres-reviewer.md",
+    "./agents/pres-section-builder.md"
+  ],
+  "skills": "./skills"
+}
