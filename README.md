@@ -73,6 +73,54 @@ Professional landing page creation workflow with 7 automated steps:
 
 See [landing-pages/README.md](landing-pages/README.md) for full documentation.
 
+### presetation
+
+Professional sales presentation creation for webinars, marathons, and workshops. Uses embedded **Hristosenko methodology** for high-converting presentations.
+
+**Usage:**
+```
+/presentation
+```
+
+**Workflow (8 Steps):**
+1. **Brainstorming** - Gather requirements (event type, audience, product)
+2. **Structure** - Generate presentation structure with timing
+3. **Content** - Write script (WHY, not HOW methodology)
+4. **CTA & Emotional** - Add 15+ CTAs, emotional triggers
+5. **Slides** - Create slide outlines
+6. **Emails** - Generate pre/post event email sequences
+7. **QA Review** - Score against methodology (pass: 80+)
+8. **Delivery** - Final package ready
+
+**Event Types:**
+| Type | Duration | Conversion |
+|------|----------|------------|
+| Webinar | 60-90 min | 5-15% |
+| Marathon | 3-5 days | 8-20% |
+| Workshop | 2-4 hours | 10-25% |
+
+**Output:**
+```
+project/{project-name}/
+├── brainstorming.md
+├── structure.md
+├── script.md
+├── slides.md
+├── emails.md
+└── qa-review.md
+```
+
+**Embedded Methodology:**
+- Ladder of Conviction (5 steps to sale)
+- Content-Sales Paradox (WHY, not HOW)
+- 15+ Unique CTAs with 5 emotional hook types
+- 3-Tier Tariff Structure
+- Dark Future Technique
+- Minimal Contact Principle for emails
+- Value Formula: (Result × Probability) / (Time × Effort)
+
+See [presetation/README.md](presetation/README.md) for full documentation.
+
 ## Adding New Plugins
 
 To add a new plugin to this marketplace:
