@@ -15,6 +15,91 @@ This skill creates slide outlines with visual recommendations for each section o
 - `brainstorming.md` - Brand/visual preferences
 - `structure.md` - Section breakdown
 
+---
+
+## CRITICAL: Offer Presentation Framework
+
+### The Value Formula
+**ЦЕННОСТЬ = (Результат x Вероятность) / (Время x Усилия)**
+(VALUE = (Result x Probability) / (Time x Effort))
+
+**Goal:** Value must exceed price by 10x in client's mind.
+
+### What People DON'T Pay For
+- Number of lessons
+- HD quality
+- Gigabytes of content
+- 58 PDF materials
+- 68 spreadsheets and guides
+
+**Mistake:** Loading course with "value" = more bonuses, more modules.
+**Result:** "I'll never figure this out, I don't have time for 500 hours of video."
+
+### Pill vs Supplement (BAD)
+| Characteristic | Supplement | Pill |
+|----------------|------------|------|
+| Time | Long (6 months) | Fast |
+| Result | Unclear | Obvious |
+| Probability | Unknown | High |
+| Effort | Required | Minimal |
+| Sales | Difficult | Easy |
+
+**Pharmacy stats:** Pills sell 10x more than supplements.
+
+### 4 Levels of Value Depth (MUST USE IN SLIDES)
+
+**Level 1: HAVE (ИМЕТЬ)**
+- Before: No skill → After: Has skill
+- Before: No income → After: Has income
+
+**Level 2: DO (ДЕЛАТЬ)**
+- Before: 2 hours commute on bus
+- After: 3 hours work from beautiful cafe
+
+**Level 3: FEEL (ЧУВСТВОВАТЬ)**
+- Before: Feeling of helplessness
+- After: Feeling of confidence and control
+
+**Level 4: BE (БЫТЬ) - Identity**
+- Before: Bad mother / loser / nobody
+- After: Supermom / winner / queen
+
+**Use ALL 4 levels** in offer presentation slides!
+
+### Kitchen Examples vs Abstract Phrases
+**WRONG (white noise):**
+- "Your life will be better"
+- "You'll change beyond recognition"
+
+**RIGHT (kitchen examples):**
+"Instead of getting to a date on the metro yourself, a Maybach with driver will be sent for you, who'll open the door."
+
+### Average Day Contrast (POWERFUL SLIDE TYPE)
+**BEFORE slide:**
+"Woke up at 6, breakfast for everyone, makeup, kids screaming, running late, lost temper, cold bus, boss yelled, Lena got promotion for short skirt..."
+
+**AFTER slide:**
+"3 hours of work from beautiful cafe, clients write themselves, you choose who to work with..."
+
+### Module Naming (Marketing, Not Methodology)
+| WRONG (Methodology) | RIGHT (Marketing) |
+|---------------------|-------------------|
+| "Introduction" | "Quick Start" |
+| "Basics Module" | "First Results in 48h" |
+| "Module 3" | "Income On Autopilot" |
+
+Name modules by RESULTS, not by content.
+
+### Bonus Presentation Rule
+Each bonus MUST close a specific:
+- Pain (боль) - what happened when they tried before
+- Doubt (сомнение) - what they fear might happen
+
+**NOT:** Random valuable content
+**YES:** "Bonus closing your fear that [specific fear]"
+
+---
+
 ## Slide Design Principles
 
 ### Visual Hierarchy
@@ -22,6 +107,7 @@ This skill creates slide outlines with visual recommendations for each section o
 2. **Minimal text** - Max 6 words per point
 3. **High contrast** - Easy to read
 4. **Consistent branding** - Colors, fonts
+5. **Mobile-first** - 80%+ watch from phones
 
 ### Slide Types
 
@@ -45,6 +131,15 @@ This skill creates slide outlines with visual recommendations for each section o
 - Split screen
 - Clear contrast
 - Transformation visual
+
+#### Type 4b: Average Day Contrast (POWERFUL)
+**Before side:**
+- Detailed "kitchen example" of their current day
+- Emotional, specific, relatable
+**After side:**
+- Detailed vision of their transformed day
+- Aspirational but believable
+- Use ALL 4 value levels (Have, Do, Feel, Be)
 
 #### Type 5: Statistics
 - Large number
@@ -260,6 +355,7 @@ For each presentation, recommend:
 
 ## Quality Checklist
 
+### Design Basics
 - [ ] One idea per slide
 - [ ] Max 6 words per headline
 - [ ] Visual for every concept
@@ -267,6 +363,29 @@ For each presentation, recommend:
 - [ ] Price reveal is dramatic
 - [ ] Testimonials have photos
 - [ ] Consistent design throughout
+- [ ] Mobile-readable (80%+ watch from phones)
+
+### Offer Presentation (CRITICAL!)
+- [ ] Value Formula used: (Result x Probability) / (Time x Effort)
+- [ ] All 4 value levels shown (Have, Do, Feel, Be)
+- [ ] Kitchen examples used (not abstract phrases)
+- [ ] Average Day Contrast slide included (Before/After)
+- [ ] Modules have marketing names (not methodology names)
+- [ ] Each bonus closes specific pain or doubt
+- [ ] NOT overloaded with "value" (causing "I'll never get through this")
+
+### Transformation Depth
+- [ ] Identity shift shown (БЫТЬ level)
+- [ ] Emotional transformation (ЧУВСТВОВАТЬ level)
+- [ ] Daily life change (ДЕЛАТЬ level)
+- [ ] Concrete gains (ИМЕТЬ level)
+- [ ] Transformation shown in ALL life spheres
+
+### Probability Elements (увеличивают вероятность)
+- [ ] Social proof slides included
+- [ ] "Even if..." objections addressed
+- [ ] Testimonials with photos
+- [ ] Results/outcomes highlighted
 
 ## Next Step
 

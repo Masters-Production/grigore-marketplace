@@ -17,14 +17,71 @@ This skill performs comprehensive quality review of the generated presentation, 
 - `slides.md` - Slide outlines
 - `emails.md` - Email sequences
 
+---
+
+## CRITICAL: Bonus Quality Framework
+
+### The Non-Competing Rule
+**"Это конкурирует с основным оффером"**
+(This competes with the main offer)
+
+If the bonus solves the main problem, people won't buy the product!
+
+**Example of WRONG bonus:**
+- Webinar: "How to earn 500k with AI marketing"
+- WRONG Bonus: "How to do marketer's daily work in 15 minutes"
+- Problem: If they can do the work in 15 min, why buy the course?
+
+### Specific Over General
+**"Семь секретов воспитать послушных детей - не очень сильный, он такой общий"**
+(Seven secrets to raise obedient children - not very strong, too general)
+
+- General bonuses don't work
+- Must be "ядреное" (powerful, specific)
+- Hit the BIGGEST fear or desire
+
+**Example:**
+- WEAK: "7 secrets to raise obedient children"
+- STRONG: "7 proven ways to detach child from gadgets without war"
+
+### Tests as Bonuses (Best Format)
+**"Тесты интересны, легкий формат, хочется пройти, хочется получить результат"**
+(Tests are interesting, light format, people want to take them, want to get the result)
+
+Works in BOTH soft AND hard niches:
+- Soft: Energy, relationships, parenting
+- Hard: Sales, marketplace, finance
+
+### The 3 Results Framework
+All test results must lead to webinar importance:
+
+**Result 1 - Fragile Stability:**
+"Situation is more or less stable, but if you do nothing, it will worsen..."
+
+**Result 2 - Tense Situation:**
+"Situation has heated up, warning bells, you need to address this issue..."
+
+**Result 3 - Maximum Urgency:**
+"SOS, fire, urgent! Drop everything and fix this immediately..."
+
+**KEY:** No result says "everything is perfect, you don't need anything"
+
+### Bonus for Ads
+Adding bonus to ads:
+- "А вот [Expert] в шапке профиля выложила тест..."
+- Specifies what they'll learn
+- Result: Higher clicks, lower cost per subscriber
+
+---
+
 ## Scoring System
 
 **Total: 100 points**
 - Structure & Flow: 20 points
 - Content Methodology: 25 points
-- Emotional Triggers: 20 points
+- Emotional Triggers: 15 points
 - CTAs & Conversion: 20 points
-- Supporting Materials: 15 points
+- Bonuses & Supporting Materials: 20 points
 
 **Pass threshold: 80 points**
 
@@ -81,11 +138,11 @@ This skill performs comprehensive quality review of the generated presentation, 
 - [ ] Bridge created (1pt)
 - [ ] Each content block has one (2pt)
 
-### 3. Emotional Triggers (20 points)
+### 3. Emotional Triggers (15 points)
 
 **Pain Amplification (5 points)**
 - [ ] Current pain named (1pt)
-- [ ] Future consequences shown (2pt)
+- [ ] Dark Future section present (2pt)
 - [ ] Emotional cost highlighted (2pt)
 
 **Desire Amplification (5 points)**
@@ -93,14 +150,10 @@ This skill performs comprehensive quality review of the generated presentation, 
 - [ ] Sensory details included (1pt)
 - [ ] Identity shift addressed (2pt)
 
-**FOMO Elements (5 points)**
-- [ ] Time urgency present (2pt)
-- [ ] Scarcity believable (2pt)
-- [ ] Exclusive access mentioned (1pt)
-
-**Social Proof (5 points)**
-- [ ] Results mentioned (2pt)
-- [ ] Testimonials included (2pt)
+**FOMO & Social Proof (5 points)**
+- [ ] Time urgency present (1pt)
+- [ ] Scarcity believable (1pt)
+- [ ] Results/testimonials included (2pt)
 - [ ] Similar people referenced (1pt)
 
 ### 4. CTAs & Conversion (20 points)
@@ -123,26 +176,29 @@ This skill performs comprehensive quality review of the generated presentation, 
 - [ ] "Need to think" addressed (1pt)
 - [ ] Pre-emptive, not reactive (1pt)
 
-### 5. Supporting Materials (15 points)
+### 5. Bonuses & Supporting Materials (20 points)
 
-**Slides (5 points)**
+**Bonus Quality (8 points) - CRITICAL!**
+- [ ] Bonus does NOT compete with main offer (3pt)
+- [ ] Bonus is specific, not general (2pt)
+- [ ] Bonus hits biggest fear/desire (2pt)
+- [ ] If test format: 3 results all lead to webinar topic (1pt)
+
+**Slides (4 points)**
 - [ ] One idea per slide (1pt)
 - [ ] Minimal text (1pt)
-- [ ] Visuals recommended (1pt)
 - [ ] CTA slides prominent (1pt)
-- [ ] Consistent design (1pt)
+- [ ] Mobile-readable (1pt)
 
-**Emails (5 points)**
-- [ ] Minimal sequence (1pt)
+**Emails (4 points)**
+- [ ] Minimal sequence (5-6 pre-event max) (1pt)
 - [ ] Benefits in every email (1pt)
-- [ ] Links prominent (1pt)
-- [ ] Deadlines mentioned (1pt)
+- [ ] Links prominent and repeated (1pt)
 - [ ] P.S. in every email (1pt)
 
-**Overall Cohesion (5 points)**
-- [ ] Message consistent (2pt)
-- [ ] Brand voice unified (1pt)
-- [ ] All pieces aligned (2pt)
+**Overall Cohesion (4 points)**
+- [ ] Message consistent across all materials (2pt)
+- [ ] All pieces aligned with brainstorming doc (2pt)
 
 ## Review Report Format
 
@@ -203,6 +259,10 @@ This skill performs comprehensive quality review of the generated presentation, 
 - [ ] Objections pre-handled
 - [ ] Minimal email contacts
 - [ ] Focus on benefits for cold traffic
+- [ ] Dark Future section present
+- [ ] Bonus does NOT compete with main offer
+- [ ] Bonus is specific and hits biggest fear/desire
+- [ ] Value = Scale of Changes (offers large transformation)
 
 ---
 

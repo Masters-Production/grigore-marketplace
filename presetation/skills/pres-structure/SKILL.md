@@ -14,6 +14,117 @@ This skill creates the detailed structure for a sales presentation based on the 
 - `brainstorming.md` - Output from pres-brainstorming skill
 - Event type determines which template to use
 
+---
+
+## CRITICAL: Cold Traffic Principles
+
+**"Проблема трафика — это проблема конверсии"**
+(Traffic problem = Conversion problem)
+
+Counterintuitive truth: If you're not getting enough traffic, it's usually because your conversion is too low to afford good traffic. Fix conversion first.
+
+### The Exchange with Surplus Principle
+**"Ценность должна быть ОЧЕВИДНО больше чем деньги"**
+(Value must be OBVIOUSLY greater than money)
+
+- Not "equal exchange" - must be "surplus exchange"
+- They give money, get value that's clearly MORE
+- This is why price doesn't matter - ROI matters
+
+### Infantile Position of Audience (CRITICAL!)
+**"Взрослое слово «ответственность» — очень неприятное, особенно когда речь о деньгах"**
+(The adult word "responsibility" is very unpleasant, especially about money)
+
+People in buying position act infantile:
+- Seek magic pill (one thing that solves everything)
+- Don't want to accept responsibility
+- Need strong guidance, not options
+- Want certainty, not possibilities
+
+### Two Motivation Vectors
+**CRITICAL:** Two fundamentally different motivations:
+
+1. **FROM (От)** - Running AWAY from pain, dark future, problems
+2. **TO (К)** - Running TOWARDS goals, bright future, desires
+
+**Which is stronger?**
+**"Движение ОТ гораздо сильнее, чем движение К"**
+(Movement FROM is much stronger than movement TO)
+
+People promise themselves to exercise for 5 years → don't.
+Doctor says "you'll die in 6 months if you don't" → they exercise immediately.
+
+### Dark Future Technique (MUST USE)
+**"Тёмное будущее — это демонстрация того, что произойдет если человек ничего не купит"**
+(Dark Future = demonstration of what happens if person buys nothing)
+
+Structure:
+1. Show current situation
+2. Project into future (6 months, 1 year)
+3. Make it VISCERAL and EMOTIONAL
+4. "Without changes, this is where you're headed"
+
+Example script:
+```
+"Представьте: прошел год. Вы не сделали [X].
+Всё осталось так же. Или стало хуже.
+[Конкретные последствия].
+А теперь представьте альтернативу..."
+```
+
+### Element Zero: Landing Page
+**"Элемент ноль — это конвертор на лендинге"**
+(Element Zero = landing page conversion)
+
+Before any traffic:
+- Landing page must convert at 15-25% minimum
+- If lower, fix landing page FIRST
+- Traffic to bad landing = wasted money
+
+Landing page must have:
+- Clear benefit headline (not clever, not cute)
+- Specific outcome promised
+- Social proof if available
+- Single clear CTA
+- Event legendizing (see below)
+
+### Event Legendizing
+**"Легендирование мероприятия — это создание ощущения уникальности и срочности"**
+(Event Legendizing = creating sense of uniqueness and urgency)
+
+Why this event is special:
+- First time teaching this publicly
+- New method never shared before
+- Limited time available
+- Specific reason for doing it now
+
+Example: "Впервые провожу этот вебинар для широкой аудитории. До этого только для закрытого клуба."
+
+### Optimal Timing: TOMORROW
+**"Лучший вариант — это ЗАВТРА"**
+(Best option = TOMORROW)
+
+For auto-webinars:
+- TODAY: They have plans already
+- WEEK LATER: Interest fades
+- TOMORROW: Perfect - scheduled, important, fresh interest
+
+If offering time selection:
+- Two times: Morning + Evening (e.g., 11am + 7pm)
+- Covers timezone differences
+- Doesn't scream "it's a recording"
+
+### Cheap Traffic = Dead Traffic
+**"Дешевый трафик — это мёртвый трафик"**
+(Cheap traffic = dead traffic)
+
+- Bots, fake accounts, people with no money
+- Low-cost clicks = no-cost results
+- Pay for quality, not quantity
+- ROI matters, not CPL
+
+---
+
 ## Process
 
 1. Read brainstorming document
@@ -55,11 +166,19 @@ Generate structure with these sections:
 ### Consequences
 [What happens if not solved]
 
+### DARK FUTURE (CRITICAL!)
+[Project their situation 6-12 months ahead if no change]
+**Script template:**
+"Представьте: прошел год. Вы не сделали [X].
+Всё осталось так же. Или стало хуже.
+[Конкретные последствия - make visceral].
+А теперь представьте альтернативу..."
+
 ### Common Mistakes
 [3 mistakes people make]
 
 ### Hope Bridge
-[Hint at solution]
+[Hint at solution - lead FROM dark future TO bright future]
 
 ---
 
@@ -180,13 +299,42 @@ Save to: `project/{project-name}/structure.md`
 - Content blocks: Focus on SIGNIFICANCE, not details
 - Offer section: Stack value, reveal price with anchoring
 
-## Success Criteria
+## Quality Checklist
 
-- [ ] All sections defined
-- [ ] Timing estimates included
+### Cold Traffic Foundation
+- [ ] Exchange with Surplus principle embedded (value OBVIOUSLY > price)
+- [ ] Infantile position addressed (magic pill, certainty, strong guidance)
+- [ ] Two Motivation Vectors used (FROM pain stronger than TO goal)
+- [ ] Dark Future section included in Problem Agitation
+- [ ] Event Legendizing elements present
+- [ ] Optimal timing considered (TOMORROW for auto-webinars)
+
+### Structure Completeness
+- [ ] All sections defined with timing estimates
 - [ ] Belief shifts identified for each content block
-- [ ] Offer structure complete
+- [ ] Content blocks match course modules exactly
+- [ ] Each block has WHY (significance) not HOW (teaching)
+
+### Dark Future & Motivation
+- [ ] Dark Future projected 6-12 months ahead
+- [ ] Consequences are visceral and emotional (not abstract)
+- [ ] FROM motivation used as primary driver
+- [ ] TO motivation used as contrast/relief
+- [ ] Hope Bridge leads FROM dark TO bright future
+
+### Offer Structure
+- [ ] Value stack complete with anchoring
+- [ ] 3-tier tariff structure if applicable (see pres-cta-emotional)
+- [ ] Bonuses complement (don't compete with) main offer
+- [ ] Price reveal uses proper anchoring
+- [ ] Guarantee/risk reversal included
+
+### Technical
+- [ ] Total timing fits event type (60-90 min webinar)
+- [ ] First 25-30 min is pure value (no selling)
+- [ ] Offer presentation 15-20 min max
 - [ ] CTA sequence planned
+- [ ] Q&A transition included
 
 ## Next Step
 
