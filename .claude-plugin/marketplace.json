@@ -17,6 +17,18 @@
       "source": "./landing-pages",
       "category": "development",
       "tags": ["landing-page", "web-design", "copywriting", "automation", "workflow"]
+    },
+    {
+      "name": "presentation",
+      "description": "Professional sales presentation creation workflow for webinars, marathons, and workshops that sell online courses. Uses embedded Hristosenko methodology for high-converting presentations.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Grigore Lipcanu",
+        "email": "contact@grigorelipcanu.com"
+      },
+      "source": "./presetation",
+      "category": "marketing",
+      "tags": ["presentation", "webinar", "marathon", "sales", "infobusiness", "hristosenko", "copywriting"]
     }
   ]
 }
